@@ -151,7 +151,7 @@ const Hero = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto animate-fade-in" style={{ animationDelay: "0.4s" }}>
             <div className="bg-card/10 backdrop-blur-sm rounded-xl p-6 border border-primary-foreground/20">
               <div className="flex items-center justify-center gap-3 text-primary-foreground">
-                <Award className="w-8 h-8" />
+                <Award className="" />
                 <div className="text-left">
                   <span className="text-3xl font-bold"></span>
                   <p className="text-sm opacity-80"></p>
