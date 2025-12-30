@@ -1,17 +1,18 @@
 import { useState } from "react";
 import { Menu, X, Phone, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 import logoAquazul from "@/assets/logo-aquazul.jpg";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navLinks = [
-    { href: "#inicio", label: "Início" },
-    { href: "#servicos", label: "Serviços" },
-    { href: "#cases", label: "Projetos" },
-    { href: "#sobre", label: "Sobre" },
-    { href: "#contato", label: "Contato" },
+    { href: "#inicio", label: "Início", isRoute: false },
+    { href: "/servicos", label: "Serviços", isRoute: true },
+    { href: "#cases", label: "Projetos", isRoute: false },
+    { href: "#sobre", label: "Sobre", isRoute: false },
+    { href: "#contato", label: "Contato", isRoute: false },
   ];
 
   return (
@@ -52,13 +53,23 @@ const Header = () => {
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="text-foreground font-medium hover:text-primary transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all hover:after:w-full"
-              >
-                {link.label}
-              </a>
+              link.isRoute ? (
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  className="text-foreground font-medium hover:text-primary transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all hover:after:w-full"
+                >
+                  {link.label}
+                </Link>
+              ) : (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="text-foreground font-medium hover:text-primary transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all hover:after:w-full"
+                >
+                  {link.label}
+                </a>
+              )
             ))}
           </nav>
 
@@ -84,14 +95,25 @@ const Header = () => {
           <nav className="lg:hidden mt-4 pb-4 border-t border-border pt-4 animate-fade-in">
             <div className="flex flex-col gap-4">
               {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setIsMenuOpen(false)}
-                  className="text-foreground font-medium hover:text-primary transition-colors py-2"
-                >
-                  {link.label}
-                </a>
+                link.isRoute ? (
+                  <Link
+                    key={link.href}
+                    to={link.href}
+                    onClick={() => setIsMenuOpen(false)}
+                    className="text-foreground font-medium hover:text-primary transition-colors py-2"
+                  >
+                    {link.label}
+                  </Link>
+                ) : (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setIsMenuOpen(false)}
+                    className="text-foreground font-medium hover:text-primary transition-colors py-2"
+                  >
+                    {link.label}
+                  </a>
+                )
               ))}
               <Button className="bg-gradient-hero text-primary-foreground font-semibold mt-2 w-full">
                 Solicitar Orçamento
