@@ -146,8 +146,8 @@ const Hero = () => {
             </Button>
           </div>
 
-             {/* Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto animate-fade-in" style={{ animationDelay: "0.4s" }}>
+          {/* Stats */}
+          <div className="" style={{ animationDelay: "0.4s" }}>
             <div className="">
               <div className="flex items-center justify-center gap-3 text-primary-foreground">
                 <Award className="" />
