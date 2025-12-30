@@ -1,10 +1,14 @@
+import atlasLogo from "@/assets/partners/atlas.jpg";
+import crisaguaLogo from "@/assets/partners/crisagua.png";
 import gencoLogo from "@/assets/partners/genco.jpg";
 import hthLogo from "@/assets/partners/hth.jpg";
 import nautilosLogo from "@/assets/partners/nautilos.svg";
 import rheemLogo from "@/assets/partners/rheem.png";
 import sibrapeLogo from "@/assets/partners/sibrape.png";
 import sodramarLogo from "@/assets/partners/sodramar.png";
+import strufaldiLogo from "@/assets/partners/strufaldi.svg";
 import tholzLogo from "@/assets/partners/tholz.jpg";
+import viapolLogo from "@/assets/partners/viapol.png";
 
 const partners = [
   { name: "Sodramar", logo: sodramarLogo },
@@ -14,6 +18,10 @@ const partners = [
   { name: "Rheem", logo: rheemLogo },
   { name: "Sibrape", logo: sibrapeLogo },
   { name: "Tholz", logo: tholzLogo },
+  { name: "Atlas", logo: atlasLogo },
+  { name: "Cris Água", logo: crisaguaLogo },
+  { name: "Strufaldi", logo: strufaldiLogo },
+  { name: "Viapol", logo: viapolLogo },
 ];
 
 const Partners = () => {
@@ -29,7 +37,7 @@ const Partners = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-6 items-center justify-items-center">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6 items-center justify-items-center">
           {partners.map((partner) => (
             <div
               key={partner.name}
