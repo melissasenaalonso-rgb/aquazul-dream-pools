@@ -9,6 +9,10 @@ import sodramarLogo from "@/assets/partners/sodramar.png";
 import strufaldiLogo from "@/assets/partners/strufaldi.svg";
 import tholzLogo from "@/assets/partners/tholz.jpg";
 import viapolLogo from "@/assets/partners/viapol.png";
+import atcllorLogo from "@/assets/partners/atcllor.webp";
+import neoclorLogo from "@/assets/partners/neoclor.webp";
+import syllentLogo from "@/assets/partners/syllent.png";
+import hidrovinilLogo from "@/assets/partners/hydrovinil.jpeg";
 
 const partners = [
   { name: "Sodramar", logo: sodramarLogo },
@@ -22,6 +26,10 @@ const partners = [
   { name: "Cris Água", logo: crisaguaLogo },
   { name: "Strufaldi", logo: strufaldiLogo },
   { name: "Viapol", logo: viapolLogo },
+  { name: "ATcllor", logo: atcllorLogo },
+  { name: "NeoClor", logo: neoclorLogo },
+  { name: "Syllent", logo: syllentLogo },
+  { name: "Hydrovinil", logo: hidrovinilLogo },
 ];
 
 const Partners = () => {
