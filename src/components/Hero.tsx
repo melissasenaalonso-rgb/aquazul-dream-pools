@@ -152,7 +152,7 @@ const Hero = () => {
               <div className="flex items-center justify-center gap-3 text-primary-foreground">
                 <Award className="" />
                 <div className="text-left">
-                  <span className="text-3xl font-bold"></span>
+                  <span className=""></span>
                   <p className="text-sm opacity-80"></p>
                 </div>
               </div>
