@@ -13,16 +13,6 @@ const services = [
     description: "Lagos ornamentais e para criação de peixes, com sistema de filtragem e paisagismo integrado.",
   },
   {
-    icon: Wrench,
-    title: "Manutenção",
-    description: "Serviços completos de manutenção preventiva e corretiva para sua piscina ou lago.",
-  },
-  {
-    icon: Droplets,
-    title: "Tratamento de Água",
-    description: "Análise e tratamento químico profissional para água cristalina e saudável.",
-  },
-  {
     icon: Sparkles,
     title: "Reforma e Modernização",
     description: "Transforme sua piscina antiga em um espaço moderno com novos revestimentos e equipamentos.",
