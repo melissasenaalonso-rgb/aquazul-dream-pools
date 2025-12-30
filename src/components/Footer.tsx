@@ -126,6 +126,8 @@ const Footer = () => {
     </footer>
   );
 };
+      
+export default Footer;
 
 {/* Marcas Parceiras */}
 <section class="marcas-parceiras">
@@ -141,5 +143,3 @@ const Footer = () => {
     <img src="img/tholz.png" alt="Logo Tholz">
   </div>
 </section>
-      
-export default Footer;
