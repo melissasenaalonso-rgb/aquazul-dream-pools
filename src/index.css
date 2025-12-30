@@ -132,11 +132,11 @@
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
-    font-family: 'Avant Garde', sans-serif;
+    font-family: 'Rage Italic', cursive;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Rage Italic', cursive;
+    font-family: 'Avant Garde', sans-serif;
   }
 }
 
