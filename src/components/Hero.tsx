@@ -159,7 +159,7 @@ const Hero = () => {
             </div>
             <div className="">
               <div className="flex items-center justify-center gap-3 text-primary-foreground">
-                <Users className="w-8 h-8" />
+                <Users className="" />
                 <div className="text-left">
                   <span className="text-3xl font-bold"></span>
                   <p className="text-sm opacity-80"></p>
@@ -168,7 +168,7 @@ const Hero = () => {
             </div>
             <div className="">
               <div className="flex items-center justify-center gap-3 text-primary-foreground">
-                <Wrench className="w-8 h-8" />
+                <Wrench className="" />
                 <div className="text-left">
                   <span className="text-3xl font-bold"></span>
                   <p className="text-sm opacity-80"></p>
