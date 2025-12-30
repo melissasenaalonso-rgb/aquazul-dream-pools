@@ -7,10 +7,10 @@ import { Button } from "@/components/ui/button";
 const cases = [
   {
     id: 1,
-    title: "Piscina Residencial Premium",
+    title: "Piscina Residencial",
     category: "Piscinas",
     description: "Projeto completo com cascata e iluminação LED",
-    image: "https://images.unsplash.com/photo-1572331165267-854da2b021aa?w=600&h=400&fit=crop",
+    image: "file:///C:/Users/win/OneDrive/Imagens/Imagens%20aquazul/PORTFOLIO1.jpg",
   },
   {
     id: 2,
