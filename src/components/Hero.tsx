@@ -150,7 +150,7 @@ const Hero = () => {
           <div className="" style={{ animationDelay: "0.4s" }}>
             <div className="">
               <div className="flex items-center justify-center gap-3 text-primary-foreground">
-                <Award className="" />
+                
                 <div className="text-left">
                   <span className=""></span>
                   <p className="text-sm opacity-80"></p>
