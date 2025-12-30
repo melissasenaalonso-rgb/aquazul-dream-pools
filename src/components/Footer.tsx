@@ -31,7 +31,7 @@ const Footer = () => {
                 className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center hover:bg-primary/40 transition-colors"
                 aria-label="WhatsApp"
               >
-                <Facebook className="w-5 h-5" />
+                
               </a>
               <a 
                 href="https://instagram.com/aquazulpiscinas" 
