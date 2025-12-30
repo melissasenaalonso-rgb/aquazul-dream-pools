@@ -21,18 +21,18 @@ const Header = () => {
       <div className="hidden md:block bg-secondary text-secondary-foreground py-2">
         <div className="container mx-auto px-4 flex justify-between items-center text-sm">
           <div className="flex items-center gap-6">
-            <a href="tel:+5511999999999" className="flex items-center gap-2 hover:text-primary transition-colors">
+            <a href="tel:+551147228089" className="flex items-center gap-2 hover:text-primary transition-colors">
               <Phone className="w-4 h-4" />
-              (11) 99999-9999
+              (11) 4722-8089
             </a>
-            <a href="mailto:contato@aquazul.com.br" className="flex items-center gap-2 hover:text-primary transition-colors">
+            <a href="mailto:aquazul1655@gmail.com" className="flex items-center gap-2 hover:text-primary transition-colors">
               <Mail className="w-4 h-4" />
-              contato@aquazul.com.br
+              aquazul1655@gmail.com
             </a>
           </div>
           <div className="flex items-center gap-4">
             <a 
-              href="https://instagram.com/aquazulpiscinas" 
+              href="https://www.instagram.com/aquazul_piscinas/" 
               target="_blank" 
               rel="noopener noreferrer"
               className="hover:text-primary transition-colors"
@@ -50,7 +50,7 @@ const Header = () => {
               <Facebook className="w-5 h-5" />
             </a>
             <a 
-              href="https://wa.me/5511999999999" 
+              href="https://wa.me/5511947389962" 
               target="_blank" 
               rel="noopener noreferrer"
               className="hover:text-primary transition-colors"
