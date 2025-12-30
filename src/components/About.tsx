@@ -52,8 +52,8 @@ const About = () => {
               Sobre a Aquazul
             </span>
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground mb-6">
-              Há 20 anos realizando{" "}
-              <span className="text-gradient">sonhos em piscinas</span>
+              Há mais de 20 anos cuidando{" "}
+              <span className="text-gradient">dos seus momentos de lazer</span>
             </h2>
             <p className="text-lg text-muted-foreground mb-6">
               A Aquazul Piscinas e Lagos nasceu com o propósito de proporcionar lazer e bem-estar às famílias. Ao longo de duas décadas, construímos uma trajetória sólida na construção e manutenção de piscinas e lagos.
