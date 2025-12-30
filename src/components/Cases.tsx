@@ -42,14 +42,14 @@ const cases = [
   },
   {
     id: 6,
-    title: "Reforma Completa",
-    category: "Reformas",
-    description: "Transformação total de piscina antiga",
+    title: "Produtos e Acessórios",
+    category: "Produtos e Acessórios",
+    description: "Linha completa de produtos para piscinas",
     image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&h=400&fit=crop",
   },
 ];
 
-const categories = ["Todos", "Piscinas", "Lagos", "Reformas"];
+const categories = ["Todos", "Piscinas", "Lagos", "Produtos e Acessórios"];
 
 const Cases = () => {
   const [activeCategory, setActiveCategory] = useState("Todos");
