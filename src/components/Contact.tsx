@@ -26,7 +26,7 @@ const contactInfo = [
   {
     icon: Clock,
     title: "Horário",
-    content: "Seg a Sex: 08:30 às 18:00 e Sáb: 08:30 às 13:30",
+    content: "Seg a Sex: 08:30 às 18:00 e Sáb: 08:30 às 12:30",
     href: "#",
   },
 ];
