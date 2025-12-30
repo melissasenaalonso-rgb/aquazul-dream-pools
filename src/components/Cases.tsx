@@ -10,7 +10,7 @@ const cases = [
     title: "Piscina Residencial",
     category: "Piscinas",
     description: "Projeto completo com cascata e iluminação LED",
-    image: "file:///C:/Users/win/OneDrive/Imagens/Imagens%20aquazul/PORTFOLIO1.jpg",
+    image: "https://scontent.fgru8-1.fna.fbcdn.net/v/t39.30808-6/607974857_1618513069515920_6444076586660683878_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=105&ccb=1-7&_nc_sid=127cfc&_nc_ohc=g1_7_TuakCAQ7kNvwF20t4G&_nc_oc=AdmyWJW32c-YG-ApySzwO7KsLZ4eyDSdQabIUEqvORnnZ91jQpi59I9bZ2ljvJjFaBA0VVMm8LyAmnbK7GPpUyGc&_nc_zt=23&_nc_ht=scontent.fgru8-1.fna&_nc_gid=3EXf8yze51xeVj969gX4rA&oh=00_AfmQjgDWXCtragDkGPeMAz0zzP4C_dJwQ4XxvucTItL6uQ&oe=69590259",
   },
   {
     id: 2,
