@@ -34,7 +34,7 @@ const contactInfo = [
     title: "WhatsApp",
     content: "(11) 94738-9962",
     href: "tel:+5511947389962",
-  }
+  },
 ];
 
 const Contact = () => {
