@@ -3,6 +3,21 @@ import logoAquazul from "@/assets/logo-aquazul.jpg";
 
 const Footer = () => {
   return (
+    {/* Marcas Parceiras */}
+<section class="marcas-parceiras">
+  <h2>Marcas Parceiras</h2>
+
+  <div class="conteudo-marcas">
+    <img src="img/sodrama.png" alt="Logo Sodrama">
+    <img src="img/nautilos.png" alt="Logo Naútilos">
+    <img src="img/genco.png" alt="Logo Genco">
+    <img src="img/hth.png" alt="Logo HTH">
+    <img src="img/rheem.png" alt="Logo Rheem">
+    <img src="img/sibrape.png" alt="Logo Sibrape">
+    <img src="img/tholz.png" alt="Logo Tholz">
+  </div>
+</section>
+      
     <footer className="bg-secondary text-secondary-foreground">
       <div className="container mx-auto px-4 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
@@ -128,18 +143,3 @@ const Footer = () => {
 };
       
 export default Footer;
-
-{/* Marcas Parceiras */}
-<section class="marcas-parceiras">
-  <h2>Marcas Parceiras</h2>
-
-  <div class="conteudo-marcas">
-    <img src="img/sodrama.png" alt="Logo Sodrama">
-    <img src="img/nautilos.png" alt="Logo Naútilos">
-    <img src="img/genco.png" alt="Logo Genco">
-    <img src="img/hth.png" alt="Logo HTH">
-    <img src="img/rheem.png" alt="Logo Rheem">
-    <img src="img/sibrape.png" alt="Logo Sibrape">
-    <img src="img/tholz.png" alt="Logo Tholz">
-  </div>
-</section>
