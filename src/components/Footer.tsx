@@ -36,7 +36,7 @@ const Footer = () => {
               </svg>
               </a>
               <a 
-                href="https://instagram.com/aquazulpiscinas" 
+                href="https://www.instagram.com/aquazul_piscinas/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center hover:bg-primary/40 transition-colors"
@@ -115,7 +115,7 @@ const Footer = () => {
               <a href="https://facebook.com/aquazulpiscinas" target="_blank" rel="noopener noreferrer" className="hover:text-primary">
                 <Facebook className="w-4 h-4" />
               </a>
-              <a href="https://instagram.com/aquazulpiscinas" target="_blank" rel="noopener noreferrer" className="hover:text-primary">
+              <a href="https://www.instagram.com/aquazul_piscinas/" target="_blank" rel="noopener noreferrer" className="hover:text-primary">
                 <Instagram className="w-4 h-4" />
               </a>
             </p>
