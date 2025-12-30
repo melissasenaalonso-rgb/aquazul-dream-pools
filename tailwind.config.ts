@@ -14,8 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['Avant Garde', 'sans-serif'],
-        serif: ['Rage Italic', 'cursive'],
+        sans: ['Rage Italic', 'cursive'],
+        serif: ['Avant Garde', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
