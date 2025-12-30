@@ -2,8 +2,8 @@ import { CheckCircle, Award, MapPin, Clock } from "lucide-react";
 import logoAquazul from "@/assets/logo-aquazul.jpg";
 
 const features = [
-  "Profissionais altamente qualificados",
-  "Materiais de primeira qualidade",
+  "Profissionais qualificados",
+  "Materiais de qualidade",
   "Garantia em todos os serviços",
   "Atendimento personalizado",
   "Orçamento sem compromisso",
