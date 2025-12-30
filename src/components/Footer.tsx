@@ -86,15 +86,15 @@ const Footer = () => {
             <h4 className="text-lg font-semibold mb-6">Contato</h4>
             <ul className="space-y-4">
               <li>
-                <a href="tel:+5511999999999" className="flex items-center gap-3 text-secondary-foreground/80 hover:text-primary transition-colors">
+                <a href="tel:+551147228089" className="flex items-center gap-3 text-secondary-foreground/80 hover:text-primary transition-colors">
                   <Phone className="w-5 h-5 flex-shrink-0" />
-                  (11) 99999-9999
+                  (11) 4722-8089
                 </a>
               </li>
               <li>
-                <a href="mailto:contato@aquazul.com.br" className="flex items-center gap-3 text-secondary-foreground/80 hover:text-primary transition-colors">
+                <a href="mailto:aquazul1655@gmail.com" className="flex items-center gap-3 text-secondary-foreground/80 hover:text-primary transition-colors">
                   <Mail className="w-5 h-5 flex-shrink-0" />
-                  contato@aquazul.com.br
+                  aquazul1655@gmail.com
                 </a>
               </li>
               <li className="flex items-start gap-3 text-secondary-foreground/80">
