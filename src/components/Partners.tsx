@@ -13,6 +13,7 @@ import atcllorLogo from "@/assets/partners/atcllor.webp";
 import neoclorLogo from "@/assets/partners/neoclor.webp";
 import syllentLogo from "@/assets/partners/syllent.png";
 import hidrovinilLogo from "@/assets/partners/hydrovinil.jpeg";
+import pooltecLogo from "@/assets/partners/pooltec.webp";
 
 const partners = [
   { name: "Sodramar", logo: sodramarLogo },
@@ -30,6 +31,7 @@ const partners = [
   { name: "NeoClor", logo: neoclorLogo },
   { name: "Syllent", logo: syllentLogo },
   { name: "Hydrovinil", logo: hidrovinilLogo },
+  { name: "Pooltec", logo: pooltecLogo },
 ];
 
 const Partners = () => {
