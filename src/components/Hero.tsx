@@ -117,9 +117,9 @@ const Hero = () => {
 
           {/* Main heading */}
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-primary-foreground mb-6 leading-tight animate-fade-in" style={{ animationDelay: "0.1s" }}>
-            Transforme seu espaço em um{" "}
+            Lazer e Qualidade{" "}
             <span className="relative">
-              paraíso aquático
+              em cada Detalhe
               <svg className="absolute -bottom-2 left-0 w-full h-3 text-accent" viewBox="0 0 200 12" preserveAspectRatio="none">
                 <path d="M0,6 Q50,0 100,6 T200,6" fill="none" stroke="currentColor" strokeWidth="3"/>
               </svg>
@@ -127,8 +127,7 @@ const Hero = () => {
           </h1>
           {/* Subtitle */}
           <p className="text-lg md:text-xl text-primary-foreground/90 mb-10 max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: "0.2s" }}>
-            Especialistas em construção e manutenção de piscinas e lagos em Mogi das Cruzes e região. 
-            Qualidade, experiência e compromisso com seu sonho.
+            Construção e manutenção de piscinas e lagos, com experiência e compromisso com seu sonho.
           </p>
 
           {/* CTA buttons */}
