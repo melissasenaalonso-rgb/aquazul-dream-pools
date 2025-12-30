@@ -25,11 +25,11 @@ const Footer = () => {
             {/* Social links */}
             <div className="flex gap-4">
               <a 
-                href="https://facebook.com/aquazulpiscinas" 
+                href="https://wa.me/5511947389962" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center hover:bg-primary/40 transition-colors"
-                aria-label="Facebook"
+                aria-label="WhatsApp"
               >
                 <Facebook className="w-5 h-5" />
               </a>
