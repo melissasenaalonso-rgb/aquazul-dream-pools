@@ -56,14 +56,10 @@ const About = () => {
               <span className="text-gradient">sonhos em piscinas</span>
             </h2>
             <p className="text-lg text-muted-foreground mb-6">
-              A Aquazul Piscinas e Lagos nasceu do sonho de proporcionar momentos de lazer e bem-estar 
-              para famílias da região de Mogi das Cruzes. Com duas décadas de experiência, nos tornamos 
-              referência em construção e manutenção de piscinas e lagos.
+              A Aquazul Piscinas e Lagos nasceu com o propósito de proporcionar lazer e bem-estar às famílias. Ao longo de duas décadas, construímos uma trajetória sólida na construção e manutenção de piscinas e lagos.
             </p>
             <p className="text-muted-foreground mb-8">
-              Nossa missão é transformar espaços comuns em verdadeiros oásis de tranquilidade, 
-              utilizando as melhores técnicas e materiais do mercado, sempre com atendimento 
-              humanizado e comprometido com a satisfação total do cliente.
+              Nossa missão é desenvolver espaços de lazer com qualidade, aplicando técnicas e materiais adequados, sempre com atendimento próximo e compromisso com a satisfação do cliente.
             </p>
 
             {/* Features list */}
