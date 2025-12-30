@@ -1,11 +1,19 @@
+import gencoLogo from "@/assets/partners/genco.jpg";
+import hthLogo from "@/assets/partners/hth.jpg";
+import nautilosLogo from "@/assets/partners/nautilos.svg";
+import rheemLogo from "@/assets/partners/rheem.png";
+import sibrapeLogo from "@/assets/partners/sibrape.png";
+import sodramarLogo from "@/assets/partners/sodramar.png";
+import tholzLogo from "@/assets/partners/tholz.jpg";
+
 const partners = [
-  { name: "Sodramar", logo: "https://www.sodramar.com.br/theme/web/imgs/logo-sodramar.png" },
-  { name: "Naútilos", logo: "https://nautilos.com.br/wp-content/uploads/2023/03/logo-nautilos.png" },
-  { name: "Genco", logo: "https://genco.com.br/wp-content/uploads/2021/04/logo-genco.png" },
-  { name: "HTH", logo: "https://hth.com.br/wp-content/uploads/2021/03/logo-hth.png" },
-  { name: "Rheem", logo: "https://www.rheem.com.br/wp-content/uploads/2020/08/logo-rheem.png" },
-  { name: "Sibrape", logo: "https://sibrape.com.br/wp-content/uploads/2021/05/logo-sibrape.png" },
-  { name: "Tholz", logo: "https://tholz.com.br/wp-content/uploads/2021/01/logo-tholz.png" },
+  { name: "Sodramar", logo: sodramarLogo },
+  { name: "Naútilos", logo: nautilosLogo },
+  { name: "Genco", logo: gencoLogo },
+  { name: "HTH", logo: hthLogo },
+  { name: "Rheem", logo: rheemLogo },
+  { name: "Sibrape", logo: sibrapeLogo },
+  { name: "Tholz", logo: tholzLogo },
 ];
 
 const Partners = () => {
@@ -25,11 +33,13 @@ const Partners = () => {
           {partners.map((partner) => (
             <div
               key={partner.name}
-              className="bg-background rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 flex items-center justify-center w-full h-24 group"
+              className="bg-background rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 flex items-center justify-center w-full h-24 group"
             >
-              <span className="text-lg font-semibold text-foreground/70 group-hover:text-primary transition-colors text-center">
-                {partner.name}
-              </span>
+              <img 
+                src={partner.logo} 
+                alt={`Logo ${partner.name}`}
+                className="max-h-16 max-w-full object-contain group-hover:scale-105 transition-transform duration-300"
+              />
             </div>
           ))}
         </div>
