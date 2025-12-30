@@ -44,7 +44,7 @@ const Contact = () => {
             Fale <span className="text-gradient">conosco</span>
           </h2>
           <p className="text-lg text-muted-foreground">
-            Estamos prontos para atender você e realizar o seu sonho. Entre em contato para um orçamento sem compromisso.
+            Estamos prontos para tirar seu sonho do papel. Entre em contato e solicite um orçamento sem compromisso.
           </p>
         </div>
 
