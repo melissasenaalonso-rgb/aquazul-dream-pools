@@ -29,6 +29,12 @@ const contactInfo = [
     content: "Seg a Sex: 08:30 às 18:00 e Sáb: 08:30 às 12:30",
     href: "#",
   },
+  {
+    icon: WhatsApp,
+    title: "WhatsApp",
+    content: "(11) 94738-9962",
+    href: "tel:+5511947389962",
+  }
 ];
 
 const Contact = () => {
