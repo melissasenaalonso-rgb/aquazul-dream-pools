@@ -56,7 +56,7 @@ const About = () => {
               <span className="text-gradient">dos seus momentos de lazer</span>
             </h2>
             <p className="text-lg text-muted-foreground mb-6">
-              A Aquazul Piscinas e Lagos nasceu com o propósito de proporcionar lazer e bem-estar às famílias. Ao longo de duas décadas, construímos uma trajetória sólida na construção e manutenção de piscinas e lagos.
+              A Aquazul Piscinas e Lagos nasceu com o propósito de proporcionar lazer e bem-estar às famílias. Ao longo de duas décadas, construímos uma trajetória sólida na construção de piscinas e lagos.
             </p>
             <p className="text-muted-foreground mb-8">
               Nossa missão é desenvolver espaços de lazer com qualidade, aplicando técnicas e materiais adequados, sempre com atendimento próximo e compromisso com a satisfação do cliente.
