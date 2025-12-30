@@ -4,27 +4,27 @@ import { Card, CardContent } from "@/components/ui/card";
 const testimonials = [
   {
     id: 1,
-    name: "Maria Silva",
-    role: "Cliente desde 2019",
-    content: "A Aquazul transformou meu quintal em um verdadeiro paraíso. Profissionais competentes e atenciosos do início ao fim do projeto.",
+    name: "Monica Morais",
+    role: "Cliente desde 2025",
+    content: "Atendimento impecável, todos muito atenciosos, profissionais qualificados!",
     rating: 5,
-    avatar: "MS",
+    avatar: "MM",
   },
   {
     id: 2,
-    name: "João Santos",
+    name: "Anderson Neves",
     role: "Cliente desde 2020",
-    content: "Excelente trabalho na construção do nosso lago. A equipe foi pontual, organizada e o resultado superou nossas expectativas.",
+    content: "Fui muito bem atendido. Foram Fiéis e Responsáveis ao orçamento e a entrega dos produtos. Parabéns e Obrigado!",
     rating: 5,
-    avatar: "JS",
+    avatar: "AN",
   },
   {
     id: 3,
-    name: "Ana Costa",
+    name: "Melissa Sena",
     role: "Cliente desde 2018",
-    content: "Já são 5 anos de parceria com a Aquazul para manutenção da nossa piscina. Serviço impecável e atendimento excepcional.",
+    content: "Já são 6 anos de parceria com a Aquazul para manutenção da nossa piscina. Serviço impecável e atendimento excepcional.",
     rating: 5,
-    avatar: "AC",
+    avatar: "MS",
   },
 ];
 
