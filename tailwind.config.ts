@@ -14,8 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['Montserrat', 'sans-serif'],
-        serif: ['Playfair Display', 'serif'],
+        sans: ['Avant Garde', 'sans-serif'],
+        serif: ['Rage Italic', 'cursive'],
       },
       colors: {
         border: "hsl(var(--border))",
