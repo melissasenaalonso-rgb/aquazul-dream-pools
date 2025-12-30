@@ -69,9 +69,6 @@ const Footer = () => {
               {[
                 "Construção de Piscinas",
                 "Construção de Lagos",
-                "Manutenção",
-                "Tratamento de Água",
-                "Reforma e Modernização",
                 "Produtos e Acessórios",
               ].map((service) => (
                 <li key={service}>
