@@ -1,8 +1,10 @@
+import { useState } from "react";
 import { Phone, Mail, MapPin, Clock, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
+import { useToast } from "@/hooks/use-toast";
 
 const contactInfo = [
   {
@@ -32,6 +34,59 @@ const contactInfo = [
 ];
 
 const Contact = () => {
+  const { toast } = useToast();
+  const [formData, setFormData] = useState({
+    nome: "",
+    telefone: "",
+    email: "",
+    servico: "",
+    mensagem: "",
+  });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    // Validação básica
+    if (!formData.nome.trim() || !formData.telefone.trim() || !formData.email.trim()) {
+      toast({
+        title: "Campos obrigatórios",
+        description: "Por favor, preencha nome, telefone e e-mail.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    // Montar mensagem formatada
+    const servicoTexto = formData.servico || "Não especificado";
+    const mensagemTexto = formData.mensagem.trim() || "Sem mensagem adicional";
+
+    const mensagemWhatsApp = `*Novo Orçamento - Aquazul*%0A%0A*Nome:* ${encodeURIComponent(formData.nome)}%0A*Telefone:* ${encodeURIComponent(formData.telefone)}%0A*E-mail:* ${encodeURIComponent(formData.email)}%0A*Serviço:* ${encodeURIComponent(servicoTexto)}%0A*Mensagem:* ${encodeURIComponent(mensagemTexto)}`;
+
+    const whatsappUrl = `https://wa.me/5511947389962?text=${mensagemWhatsApp}`;
+
+    // Abrir WhatsApp
+    window.open(whatsappUrl, "_blank");
+
+    toast({
+      title: "Redirecionando para WhatsApp",
+      description: "Complete o envio da mensagem no WhatsApp.",
+    });
+
+    // Limpar formulário
+    setFormData({
+      nome: "",
+      telefone: "",
+      email: "",
+      servico: "",
+      mensagem: "",
+    });
+  };
+
   return (
     <section id="contato" className="py-20 bg-muted/30">
       <div className="container mx-auto px-4">
@@ -55,15 +110,19 @@ const Contact = () => {
               <h3 className="text-2xl font-serif font-bold text-card-foreground mb-6">
                 Solicite um orçamento
               </h3>
-              <form className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="text-sm font-medium text-foreground mb-2 block">
                       Nome completo
                     </label>
                     <Input 
+                      name="nome"
+                      value={formData.nome}
+                      onChange={handleInputChange}
                       placeholder="Seu nome" 
                       className="bg-background border-border focus:border-primary"
+                      required
                     />
                   </div>
                   <div>
@@ -71,8 +130,12 @@ const Contact = () => {
                       Telefone
                     </label>
                     <Input 
+                      name="telefone"
+                      value={formData.telefone}
+                      onChange={handleInputChange}
                       placeholder="(11) 99999-9999" 
                       className="bg-background border-border focus:border-primary"
+                      required
                     />
                   </div>
                 </div>
@@ -81,21 +144,30 @@ const Contact = () => {
                     E-mail
                   </label>
                   <Input 
-                    type="email" 
+                    name="email"
+                    type="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
                     placeholder="seu@email.com" 
                     className="bg-background border-border focus:border-primary"
+                    required
                   />
                 </div>
                 <div>
                   <label className="text-sm font-medium text-foreground mb-2 block">
                     Tipo de serviço
                   </label>
-                  <select className="w-full h-10 px-3 rounded-md border border-border bg-background text-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary">
+                  <select 
+                    name="servico"
+                    value={formData.servico}
+                    onChange={handleInputChange}
+                    className="w-full h-10 px-3 rounded-md border border-border bg-background text-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                  >
                     <option value="">Selecione um serviço</option>
-                    <option value="piscina">Construção de Piscina</option>
-                    <option value="lago">Construção de Lago</option>
-                    <option value="produtos">Produtos e Acessórios</option>
-                    <option value="outro">Outro</option>
+                    <option value="Construção de Piscina">Construção de Piscina</option>
+                    <option value="Construção de Lago">Construção de Lago</option>
+                    <option value="Produtos e Acessórios">Produtos e Acessórios</option>
+                    <option value="Outro">Outro</option>
                   </select>
                 </div>
                 <div>
@@ -103,12 +175,15 @@ const Contact = () => {
                     Mensagem
                   </label>
                   <Textarea 
+                    name="mensagem"
+                    value={formData.mensagem}
+                    onChange={handleInputChange}
                     placeholder="Descreva seu projeto ou dúvida..."
                     rows={4}
                     className="bg-background border-border focus:border-primary resize-none"
                   />
                 </div>
-                <Button className="w-full bg-gradient-hero text-primary-foreground font-semibold py-6 shadow-glow hover:opacity-90 transition-opacity gap-2">
+                <Button type="submit" className="w-full bg-gradient-hero text-primary-foreground font-semibold py-6 shadow-glow hover:opacity-90 transition-opacity gap-2">
                   <Send className="w-5 h-5" />
                   Enviar Mensagem
                 </Button>
