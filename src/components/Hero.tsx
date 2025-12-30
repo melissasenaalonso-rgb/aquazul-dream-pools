@@ -127,7 +127,7 @@ const Hero = () => {
           </h1>
           {/* Subtitle */}
           <p className="text-lg md:text-xl text-primary-foreground/90 mb-10 max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: "0.2s" }}>
-            Construção e manutenção de piscinas e lagos, com experiência e compromisso com seu sonho.
+            Construção de piscinas e lagos, com experiência e compromisso com seu sonho.
           </p>
 
           {/* CTA buttons */}
