@@ -7,9 +7,9 @@ import { Card, CardContent } from "@/components/ui/card";
 const contactInfo = [
   {
     icon: Phone,
-    title: "Telefone",
-    content: "(11) 4722-8089",
-    href: "tel:+551147228089",
+    title: "WhatsApp",
+    content: "(11) 94738-9962",
+    href: "https://wa.me/5511947389962",
   },
   {
     icon: Mail,
@@ -28,12 +28,6 @@ const contactInfo = [
     title: "Horário",
     content: "Seg a Sex: 08:30 às 18:00 e Sáb: 08:30 às 12:30",
     href: "#",
-  },
-  {
-    icon: WhatsApp,
-    title: "WhatsApp",
-    content: "(11) 94738-9962",
-    href: "tel:+5511947389962",
   },
 ];
 
