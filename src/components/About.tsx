@@ -20,7 +20,7 @@ const About = () => {
             <div className="relative z-10">
               <div className="relative rounded-2xl overflow-hidden shadow-glow">
                 <img 
-                  src="https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?w=600&h=500&fit=crop"
+                  src="https://scontent.fgru8-1.fna.fbcdn.net/v/t39.30808-6/608141441_1618521652848395_5810096523125116564_n.jpg?stp=dst-jpg_p180x540_tt6&_nc_cat=108&ccb=1-7&_nc_sid=127cfc&_nc_ohc=T0O-O99E__sQ7kNvwHYLzV3&_nc_oc=AdmW7ZNNJOoexrjERPtF4yFHzsMc7x3LndCV31YoOnAakh3lTpwXfLorQ7GtC1cXf1y9b4yFO-iv62L9aaR3DW0Y&_nc_zt=23&_nc_ht=scontent.fgru8-1.fna&_nc_gid=ezcCMxnuqhO8ExVPEuU6Dg&oh=00_Afl5sO5SeYDkNrkbZABfUtFBW9ajQzYUldraQyf3j2O_6g&oe=69591D46"
                   alt="Equipe Aquazul trabalhando em uma piscina"
                   className="w-full h-auto"
                 />
