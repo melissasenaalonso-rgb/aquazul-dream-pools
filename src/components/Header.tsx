@@ -105,9 +105,11 @@ const Header = () => {
 
           {/* CTA Button */}
           <div className="hidden md:flex items-center gap-4">
-            <Button className="bg-gradient-hero hover:opacity-90 transition-opacity text-primary-foreground font-semibold shadow-glow">
-              Solicitar Orçamento
-            </Button>
+            <a href="#contato">
+              <Button className="bg-gradient-hero hover:opacity-90 transition-opacity text-primary-foreground font-semibold shadow-glow">
+                Solicitar Orçamento
+              </Button>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -145,9 +147,11 @@ const Header = () => {
                   </a>
                 )
               ))}
-              <Button className="bg-gradient-hero text-primary-foreground font-semibold mt-2 w-full">
-                Solicitar Orçamento
-              </Button>
+              <a href="#contato" onClick={() => setIsMenuOpen(false)}>
+                <Button className="bg-gradient-hero text-primary-foreground font-semibold mt-2 w-full">
+                  Solicitar Orçamento
+                </Button>
+              </a>
             </div>
           </nav>
         )}
