@@ -94,7 +94,7 @@ const Hero = () => {
       {/* Animated waves decoration */}
       <div className="absolute bottom-0 left-0 right-0 h-32 overflow-hidden z-10">
         <svg 
-          viewBox="0 0 1770 120" 
+          viewBox="0 0 1550 120" 
           className="absolute bottom-0 w-full h-32 text-background animate-wave"
           preserveAspectRatio="none"
         >
