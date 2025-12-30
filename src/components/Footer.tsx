@@ -96,6 +96,11 @@ const Footer = () => {
                   aquazul1655@gmail.com
                 </a>
               </li>
+                <a href="https://wa.me/5511947389962" className="flex items-center gap-3 text-secondary-foreground/80 hover:text-primary transition-colors">
+                  <WhatsApp className="w-5 h-5 flex-shrink-0" />
+                  (11) 94738-9962
+                </a>
+              </li>
               <li className="flex items-start gap-3 text-secondary-foreground/80">
                 <MapPin className="w-5 h-5 flex-shrink-0 mt-0.5" />
                 Mogi das Cruzes - SP e Região
