@@ -127,4 +127,48 @@ const Footer = () => {
   );
 };
 
+{/* Marcas Parceiras */}
+<section class="marcas-parceiras">
+  <h2>Marcas Parceiras</h2>
+
+  <div class="abas">
+    <button class="aba ativa" onclick="trocarMarca('sodrama')">Sodrama</button>
+    <button class="aba" onclick="trocarMarca('nautilos')">Naútilos</button>
+    <button class="aba" onclick="trocarMarca('genco')">Genco</button>
+    <button class="aba" onclick="trocarMarca('hth')">HTH</button>
+    <button class="aba" onclick="trocarMarca('rheem')">Rheem</button>
+    <button class="aba" onclick="trocarMarca('sibrape')">Sibrape</button>
+    <button class="aba" onclick="trocarMarca('tholz')">Tholz</button>
+  </div>
+
+  <div class="conteudo-marcas">
+    <div class="marca ativa" id="sodrama">
+      <img src="img/sodrama.png" alt="Logo Sodrama">
+    </div>
+
+    <div class="marca" id="nautilos">
+      <img src="img/nautilos.png" alt="Logo Naútilos">
+    </div>
+
+    <div class="marca" id="genco">
+      <img src="img/genco.png" alt="Logo Genco">
+    </div>
+
+    <div class="marca" id="hth">
+      <img src="img/hth.png" alt="Logo HTH">
+    </div>
+
+    <div class="marca" id="rheem">
+      <img src="img/rheem.png" alt="Logo Rheem">
+    </div>
+
+    <div class="marca" id="sibrape">
+      <img src="img/sibrape.png" alt="Logo Sibrape">
+    </div>
+
+    <div class="marca" id="tholz">
+      <img src="img/tholz.png" alt="Logo Tholz">
+    </div>
+  </div>
+</section>
 export default Footer;
