@@ -132,12 +132,14 @@ const Hero = () => {
 
           {/* CTA buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16 animate-fade-in" style={{ animationDelay: "0.3s" }}>
-            <Button 
-              size="lg" 
-              className="bg-card text-secondary hover:bg-card/90 font-semibold text-lg px-8 py-6 shadow-card"
-            >
-              Solicitar Orçamento Grátis
-            </Button>
+            <a href="#contato">
+              <Button 
+                size="lg" 
+                className="bg-card text-secondary hover:bg-card/90 font-semibold text-lg px-8 py-6 shadow-card"
+              >
+                Solicitar Orçamento Grátis
+              </Button>
+            </a>
             <Button 
               size="lg" 
               className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold text-lg px-8 py-6 shadow-card"
