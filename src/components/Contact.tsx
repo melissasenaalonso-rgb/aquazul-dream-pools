@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Phone, Mail, MapPin, Clock, Send } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Send, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -48,28 +48,27 @@ const Contact = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-
-    // Validação básica
+  const validateForm = () => {
     if (!formData.nome.trim() || !formData.telefone.trim() || !formData.email.trim()) {
       toast({
         title: "Campos obrigatórios",
         description: "Por favor, preencha nome, telefone e e-mail.",
         variant: "destructive",
       });
-      return;
+      return false;
     }
+    return true;
+  };
 
-    // Montar mensagem formatada
+  const handleWhatsApp = () => {
+    if (!validateForm()) return;
+
     const servicoTexto = formData.servico || "Não especificado";
     const mensagemTexto = formData.mensagem.trim() || "Sem mensagem adicional";
 
     const mensagemWhatsApp = `*Novo Orçamento - Aquazul*%0A%0A*Nome:* ${encodeURIComponent(formData.nome)}%0A*Telefone:* ${encodeURIComponent(formData.telefone)}%0A*E-mail:* ${encodeURIComponent(formData.email)}%0A*Serviço:* ${encodeURIComponent(servicoTexto)}%0A*Mensagem:* ${encodeURIComponent(mensagemTexto)}`;
 
     const whatsappUrl = `https://wa.me/5511947389962?text=${mensagemWhatsApp}`;
-
-    // Abrir WhatsApp
     window.open(whatsappUrl, "_blank");
 
     toast({
@@ -77,7 +76,32 @@ const Contact = () => {
       description: "Complete o envio da mensagem no WhatsApp.",
     });
 
-    // Limpar formulário
+    clearForm();
+  };
+
+  const handleEmail = () => {
+    if (!validateForm()) return;
+
+    const servicoTexto = formData.servico || "Não especificado";
+    const mensagemTexto = formData.mensagem.trim() || "Sem mensagem adicional";
+
+    const subject = encodeURIComponent(`Novo Orçamento - ${formData.nome}`);
+    const body = encodeURIComponent(
+      `Novo Orçamento - Aquazul\n\nNome: ${formData.nome}\nTelefone: ${formData.telefone}\nE-mail: ${formData.email}\nServiço: ${servicoTexto}\nMensagem: ${mensagemTexto}`
+    );
+
+    const mailtoUrl = `mailto:aquazul1655@gmail.com?subject=${subject}&body=${body}`;
+    window.open(mailtoUrl, "_blank");
+
+    toast({
+      title: "Abrindo cliente de e-mail",
+      description: "Complete o envio no seu aplicativo de e-mail.",
+    });
+
+    clearForm();
+  };
+
+  const clearForm = () => {
     setFormData({
       nome: "",
       telefone: "",
@@ -110,7 +134,7 @@ const Contact = () => {
               <h3 className="text-2xl font-serif font-bold text-card-foreground mb-6">
                 Solicite um orçamento
               </h3>
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="text-sm font-medium text-foreground mb-2 block">
@@ -183,11 +207,30 @@ const Contact = () => {
                     className="bg-background border-border focus:border-primary resize-none"
                   />
                 </div>
-                <Button type="submit" className="w-full bg-gradient-hero text-primary-foreground font-semibold py-6 shadow-glow hover:opacity-90 transition-opacity gap-2">
-                  <Send className="w-5 h-5" />
-                  Enviar Mensagem
-                </Button>
-              </form>
+                
+                <p className="text-sm text-muted-foreground text-center">
+                  Escolha como prefere enviar:
+                </p>
+                
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <Button 
+                    type="button" 
+                    onClick={handleWhatsApp}
+                    className="w-full bg-[#25D366] hover:bg-[#128C7E] text-white font-semibold py-6 transition-colors gap-2"
+                  >
+                    <MessageCircle className="w-5 h-5" />
+                    Enviar via WhatsApp
+                  </Button>
+                  <Button 
+                    type="button" 
+                    onClick={handleEmail}
+                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-6 transition-colors gap-2"
+                  >
+                    <Mail className="w-5 h-5" />
+                    Enviar via E-mail
+                  </Button>
+                </div>
+              </div>
             </CardContent>
           </Card>
 
