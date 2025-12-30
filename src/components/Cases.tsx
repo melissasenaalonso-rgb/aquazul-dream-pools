@@ -70,7 +70,7 @@ const Cases = () => {
             Nossos <span className="text-gradient">projetos realizados</span>
           </h2>
           <p className="text-lg text-muted-foreground">
-            Confira alguns dos nossos trabalhos e inspire-se para realizar o seu projeto dos sonhos.
+            Confira alguns dos nossos trabalhos e inspire-se para realizar o seu próximo projeto.
           </p>
         </div>
 
