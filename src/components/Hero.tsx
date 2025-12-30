@@ -108,6 +108,7 @@ const Hero = () => {
             <div className="container mx-auto px-4 relative z-10 text-center">
         <div className="max-w-4xl mx-auto">
           {/* Badge */}
+          <div>
           <div className="inline-flex items-center gap-2 bg-card/20 backdrop-blur-sm rounded-full px-6 py-2 mb-8 border border-primary-foreground/20 animate-fade-in">
             <Award className="w-5 h-5 text-primary-foreground" />
             <span className="text-primary-foreground font-semibold text-sm md:text-base">
