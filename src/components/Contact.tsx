@@ -8,25 +8,25 @@ const contactInfo = [
   {
     icon: Phone,
     title: "Telefone",
-    content: "(11) 99999-9999",
-    href: "tel:+5511999999999",
+    content: "(11) 4722-8089",
+    href: "tel:+551147228089",
   },
   {
     icon: Mail,
     title: "E-mail",
-    content: "contato@aquazul.com.br",
-    href: "mailto:contato@aquazul.com.br",
+    content: "aquazul1655@gmail.com",
+    href: "mailto:aquazul1655@gmail.com",
   },
   {
     icon: MapPin,
     title: "Endereço",
-    content: "Mogi das Cruzes - SP",
+    content: "Av. Francisco Ferreira Lopes, 1655 - Vila Lavinia, Mogi das Cruzes - SP",
     href: "#",
   },
   {
     icon: Clock,
     title: "Horário",
-    content: "Seg - Sáb: 8h às 18h",
+    content: "Seg a Sex: 08:30 às 18:00 <br /> Sáb: 08:30 às 13:30",
     href: "#",
   },
 ];
@@ -94,8 +94,6 @@ const Contact = () => {
                     <option value="">Selecione um serviço</option>
                     <option value="piscina">Construção de Piscina</option>
                     <option value="lago">Construção de Lago</option>
-                    <option value="manutencao">Manutenção</option>
-                    <option value="reforma">Reforma</option>
                     <option value="produtos">Produtos e Acessórios</option>
                     <option value="outro">Outro</option>
                   </select>
@@ -139,7 +137,7 @@ const Contact = () => {
             {/* Map placeholder */}
             <div className="bg-card rounded-xl overflow-hidden border border-border/50 shadow-soft h-64">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117071.7899802055!2d-46.25!3d-23.52!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cdddfa4b2f2c39%3A0x9a7a2c8dc4c67c5!2sMogi%20das%20Cruzes%2C%20SP!5e0!3m2!1spt-BR!2sbr!4v1"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7315.736291017295!2d-46.22907845930333!3d-23.537244365265288!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce77e7dd9ad6c9%3A0xf43fb49f632a09ec!2sAquazul%20Piscinas%20e%20Lagos!5e0!3m2!1spt-BR!2sbr!4v1767061981073!5m2!1spt-BR!2sbr"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
