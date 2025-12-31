@@ -45,7 +45,7 @@ const cases = [
     title: "Produtos e Acessórios",
     category: "Produtos e Acessórios",
     description: "Linha completa de produtos para piscinas",
-    image: "https://scontent.fgru8-1.fna.fbcdn.net/v/t39.30808-6/607276159_1618518919515335_4839688454197118062_n.jpg?stp=dst-jpg_p552x414_tt6&_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_ohc=Z0y0_sIqimUQ7kNvwGYnHnh&_nc_oc=AdlADfh47BMrQ-XrgmKcqIBiYv-ehKh3ZXTStTO6AYDQ99csZUQT76byDNxyGhILgmROjl8rBCxQAlx8eaveMEPD&_nc_zt=23&_nc_ht=scontent.fgru8-1.fna&_nc_gid=7t8psRLzUireEiTUs9EBSQ&oh=00_AfmFJfsBYFHTNCiMPKVpAchQTT482gi4ytnOrKOIqZwqKg&oe=69591B73",
+    image: "https://scontent.fgru8-1.fna.fbcdn.net/v/t39.30808-6/607649521_1619155512785009_8636038571645461630_n.jpg?stp=dst-jpg_p526x296_tt6&_nc_cat=105&ccb=1-7&_nc_sid=127cfc&_nc_ohc=rQ2_Unb1szMQ7kNvwFZlDj0&_nc_oc=Adn_GHDN9oN2NPo7PIpCpB_E_1kNfKuMO0jNLcUz9E-TfZ7naPDMU015WV0xvfKOL6wnFXSNXbEVhCdiWR3fylhU&_nc_zt=23&_nc_ht=scontent.fgru8-1.fna&_nc_gid=igAm6btltlAz429hO1ZD_g&oh=00_Aflil9inTb0vCREhrTZ_cyi2vS5qihSpQDZn6HpUIEITHQ&oe=695A2C1A",
   },
 ];
 
