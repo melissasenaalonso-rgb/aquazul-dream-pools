@@ -21,13 +21,13 @@ const Header = () => {
       <div className="hidden md:block bg-secondary text-secondary-foreground py-2">
         <div className="container mx-auto px-4 flex justify-between items-center text-sm">
           <div className="flex items-center gap-6">
-            <a href="tel:+551147228089" className="flex items-center gap-2 hover:text-primary transition-colors">
+            <a href="tel:+551147228089" className="flex items-center gap-2 hover:text-primary transition-colors font-sans">
               <Phone className="w-4 h-4" />
-              (11) 4722-8089
+              <span className="tracking-wide">(11) 4722-8089</span>
             </a>
-            <a href="mailto:aquazul1655@gmail.com" className="flex items-center gap-2 hover:text-primary transition-colors">
+            <a href="mailto:aquazul1655@gmail.com" className="flex items-center gap-2 hover:text-primary transition-colors font-sans">
               <Mail className="w-4 h-4" />
-              aquazul1655@gmail.com
+              <span className="tracking-wide">aquazul1655@gmail.com</span>
             </a>
           </div>
           <div className="flex items-center gap-4">
