@@ -16,6 +16,7 @@ export default {
       fontFamily: {
         sans: ['Rage Italic', 'cursive'],
         serif: ['Avant Garde', 'sans-serif'],
+        body: ['system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
