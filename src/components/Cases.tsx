@@ -20,31 +20,31 @@ const cases = [
   },
   {
     id: 2,
-    title: "Piscina Rasa",
-    category: "Piscinas",
-    description: "Design moderno com área de descanso integrada",
-    image: piscinaRasa,
-  },
-  {
-    id: 3,
-    title: "Piscina Infinity",
-    category: "Piscinas",
-    description: "Vista panorâmica com iluminação LED noturna",
-    image: piscinaInfinity,
-  },
-  {
-    id: 4,
     title: "Lago Ornamental",
     category: "Lagos",
     description: "Lago com plantas aquáticas e pedras decorativas",
     image: lagoOrnamental1,
   },
   {
-    id: 5,
+    id: 3,
+    title: "Piscina Rasa",
+    category: "Piscinas",
+    description: "Design moderno com área de descanso integrada",
+    image: piscinaRasa,
+  },
+  {
+    id: 4,
     title: "Lago Ornamental",
     category: "Lagos",
     description: "Projeto natural integrado ao paisagismo",
     image: lagoOrnamental2,
+  },
+  {
+    id: 5,
+    title: "Piscina Infinity",
+    category: "Piscinas",
+    description: "Vista panorâmica com iluminação LED noturna",
+    image: piscinaInfinity,
   },
 ];
 
