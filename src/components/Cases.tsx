@@ -7,6 +7,8 @@ import { Button } from "@/components/ui/button";
 import piscinaResidencial from "@/assets/portfolio/piscina-residencial.jpg";
 import piscinaRasa from "@/assets/portfolio/piscina-rasa.jpg";
 import piscinaInfinity from "@/assets/portfolio/piscina-infinity.jpg";
+import lagoOrnamental1 from "@/assets/portfolio/lago-ornamental-1.jpg";
+import lagoOrnamental2 from "@/assets/portfolio/lago-ornamental-2.jpg";
 
 const cases = [
   {
@@ -29,6 +31,20 @@ const cases = [
     category: "Piscinas",
     description: "Vista panorâmica com iluminação LED noturna",
     image: piscinaInfinity,
+  },
+  {
+    id: 4,
+    title: "Lago Ornamental",
+    category: "Lagos",
+    description: "Lago com plantas aquáticas e pedras decorativas",
+    image: lagoOrnamental1,
+  },
+  {
+    id: 5,
+    title: "Lago Ornamental",
+    category: "Lagos",
+    description: "Projeto natural integrado ao paisagismo",
+    image: lagoOrnamental2,
   },
 ];
 
