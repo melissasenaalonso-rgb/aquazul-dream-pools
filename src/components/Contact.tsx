@@ -145,7 +145,7 @@ const Contact = () => {
                       value={formData.nome}
                       onChange={handleInputChange}
                       placeholder="Seu nome" 
-                      className="bg-background border-border focus:border-primary font-sans"
+                      className="bg-background border-border focus:border-primary font-heading"
                       required
                     />
                   </div>
@@ -158,7 +158,7 @@ const Contact = () => {
                       value={formData.telefone}
                       onChange={handleInputChange}
                       placeholder="(11) 99999-9999" 
-                      className="bg-background border-border focus:border-primary font-sans"
+                      className="bg-background border-border focus:border-primary font-heading"
                       required
                     />
                   </div>
@@ -173,7 +173,7 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     placeholder="seu@email.com" 
-                    className="bg-background border-border focus:border-primary font-sans"
+                    className="bg-background border-border focus:border-primary font-heading"
                     required
                   />
                 </div>
@@ -185,7 +185,7 @@ const Contact = () => {
                     name="servico"
                     value={formData.servico}
                     onChange={handleInputChange}
-                    className="w-full h-10 px-3 rounded-md border border-border bg-background text-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary font-sans"
+                    className="w-full h-10 px-3 rounded-md border border-border bg-background text-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary font-heading"
                   >
                     <option value="">Selecione um serviço</option>
                     <option value="Construção de Piscina">Construção de Piscina</option>
@@ -204,7 +204,7 @@ const Contact = () => {
                     onChange={handleInputChange}
                     placeholder="Descreva seu projeto ou dúvida..."
                     rows={4}
-                    className="bg-background border-border focus:border-primary resize-none font-sans"
+                    className="bg-background border-border focus:border-primary resize-none font-heading"
                   />
                 </div>
                 
