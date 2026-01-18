@@ -3,49 +3,32 @@ import { Plus, ExternalLink } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
-// Placeholder cases - can be replaced with real images later
+// Import portfolio images
+import piscinaResidencial from "@/assets/portfolio/piscina-residencial.jpg";
+import piscinaRasa from "@/assets/portfolio/piscina-rasa.jpg";
+import piscinaInfinity from "@/assets/portfolio/piscina-infinity.jpg";
+
 const cases = [
   {
     id: 1,
     title: "Piscina Residencial",
     category: "Piscinas",
-    description: "Projeto completo com cascata e iluminação LED",
-    image: "https://scontent.fgru8-1.fna.fbcdn.net/v/t39.30808-6/607974857_1618513069515920_6444076586660683878_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=105&ccb=1-7&_nc_sid=127cfc&_nc_ohc=g1_7_TuakCAQ7kNvwF20t4G&_nc_oc=AdmyWJW32c-YG-ApySzwO7KsLZ4eyDSdQabIUEqvORnnZ91jQpi59I9bZ2ljvJjFaBA0VVMm8LyAmnbK7GPpUyGc&_nc_zt=23&_nc_ht=scontent.fgru8-1.fna&_nc_gid=3EXf8yze51xeVj969gX4rA&oh=00_AfmQjgDWXCtragDkGPeMAz0zzP4C_dJwQ4XxvucTItL6uQ&oe=69590259",
+    description: "Projeto completo com vista panorâmica e deck em madeira",
+    image: piscinaResidencial,
   },
   {
     id: 2,
-    title: "Lago Ornamental",
-    category: "Lagos",
-    description: "Lago com carpas e plantas aquáticas",
-    image: "https://scontent.fgru8-1.fna.fbcdn.net/v/t39.30808-6/606900399_1618514389515788_3367387341999722906_n.jpg?stp=dst-jpg_p526x296_tt6&_nc_cat=104&ccb=1-7&_nc_sid=127cfc&_nc_ohc=toEDdacmrywQ7kNvwHHRXL_&_nc_oc=Adlm0jlyRR6kiDKgJuSXIWOlYMZZtDA8z4K-7zyuzkiOFNbSQU9duzyTRUWEEwsD3oTrOSqU91MzABgxtk1A76K-&_nc_zt=23&_nc_ht=scontent.fgru8-1.fna&_nc_gid=IpG8UledrfEd9hk4AbehPA&oh=00_Afmn1jMkjvNgzBuxLoOT2w6bnrAeHf1M-sJo8hFPPjIxgQ&oe=695929DA",
+    title: "Piscina Rasa",
+    category: "Piscinas",
+    description: "Design moderno com área de descanso integrada",
+    image: piscinaRasa,
   },
   {
     id: 3,
-    title: "Piscina Rasas",
-    category: "Piscinas",
-    description: "Design moderno com fácil acesso para as crianças",
-    image: "https://scontent.fgru8-1.fna.fbcdn.net/v/t39.30808-6/607198728_1618514909515736_2524766984308339971_n.jpg?stp=dst-jpg_p526x296_tt6&_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_ohc=o5stLdu9BgoQ7kNvwEyjkKK&_nc_oc=Adn2oyURUOBXyVWx7b-wPzgvUQp4iW1K8QPFpl-2KaPxrIVSrCRJheHwTBlWbZC-VAT1ylkZTF5AcMJar9ofBTVO&_nc_zt=23&_nc_ht=scontent.fgru8-1.fna&_nc_gid=fW97FPwmxsVJYk5yDHnOdA&oh=00_Afn1fSuYb0Y0HR_A-s99RthjLkPKEAqn3mDZmyp5bn611Q&oe=69590D97",
-  },
-  {
-    id: 4,
-    title: "Lago Ornamental",
-    category: "Lagos",
-    description: "Lago com carpas e plantas aquáticas",
-    image: "https://scontent.fgru8-1.fna.fbcdn.net/v/t39.30808-6/607113679_1618515812848979_3389124929621012481_n.jpg?stp=dst-jpg_p526x296_tt6&_nc_cat=111&ccb=1-7&_nc_sid=127cfc&_nc_ohc=5c1Qvd6fsEYQ7kNvwG6YOGs&_nc_oc=AdntVyo33_gfD28LhNDZom4TGC0N1m4VtMsY-Vj3CNscGTp8yEQxcVgGT-pu7PhHxU554hLvFZq6uwl8ASIkhl9l&_nc_zt=23&_nc_ht=scontent.fgru8-1.fna&_nc_gid=meahqpyySRl2dfiTLM4t1w&oh=00_AfnABRChfg1pa_9rFlx8vOMmXzoqozbwxC-kC1TMPF-YqQ&oe=6959083D",
-  },
-  {
-    id: 5,
     title: "Piscina Infinity",
     category: "Piscinas",
-    description: "Vista panorâmica com borda infinita",
-    image: "https://scontent.fgru8-1.fna.fbcdn.net/v/t39.30808-6/608196336_1618516972848863_8263067396390999363_n.jpg?stp=dst-jpg_p180x540_tt6&_nc_cat=100&ccb=1-7&_nc_sid=127cfc&_nc_ohc=JBwLm2_HW6YQ7kNvwGNjwWU&_nc_oc=AdkgznR2AShykmfoye5WEBRukfKnBDO55G6ajdpyRgiaeD6Mx807s3gExXsLyn4E3hpn00ouL1WqxT0BnAxLuz09&_nc_zt=23&_nc_ht=scontent.fgru8-1.fna&_nc_gid=yGy7LoLNbsOfCw-ljqWvzQ&oh=00_Afm65Id-db6-yzmGp6s6geQIevLuyK_PJRMDGUrYLBMVaQ&oe=69592D9C",
-  },
-  {
-    id: 6,
-    title: "Produtos e Acessórios",
-    category: "Produtos e Acessórios",
-    description: "Linha completa de produtos para piscinas",
-    image: "https://scontent.fgru8-1.fna.fbcdn.net/v/t39.30808-6/607649521_1619155512785009_8636038571645461630_n.jpg?stp=dst-jpg_p526x296_tt6&_nc_cat=105&ccb=1-7&_nc_sid=127cfc&_nc_ohc=rQ2_Unb1szMQ7kNvwFZlDj0&_nc_oc=Adn_GHDN9oN2NPo7PIpCpB_E_1kNfKuMO0jNLcUz9E-TfZ7naPDMU015WV0xvfKOL6wnFXSNXbEVhCdiWR3fylhU&_nc_zt=23&_nc_ht=scontent.fgru8-1.fna&_nc_gid=igAm6btltlAz429hO1ZD_g&oh=00_Aflil9inTb0vCREhrTZ_cyi2vS5qihSpQDZn6HpUIEITHQ&oe=695A2C1A",
+    description: "Vista panorâmica com iluminação LED noturna",
+    image: piscinaInfinity,
   },
 ];
 
