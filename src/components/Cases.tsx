@@ -34,6 +34,13 @@ import lagoOrnamental3 from "@/assets/portfolio/lago-ornamental-3.jpg";
 import lagoOrnamental4 from "@/assets/portfolio/lago-ornamental-4.jpg";
 import lagoOrnamental5 from "@/assets/portfolio/lago-ornamental-5.jpg";
 
+// Import gallery images for Piscina Rasa
+import piscinaRasa1 from "@/assets/portfolio/piscina-rasa-1.jpg";
+import piscinaRasa2 from "@/assets/portfolio/piscina-rasa-2.jpg";
+import piscinaRasa3 from "@/assets/portfolio/piscina-rasa-3.jpg";
+import piscinaRasa4 from "@/assets/portfolio/piscina-rasa-4.jpg";
+import piscinaRasa5 from "@/assets/portfolio/piscina-rasa-5.jpg";
+
 const piscinaResidencialGallery = [
   piscinaResidencial,
   piscinaResidencial1,
@@ -49,6 +56,15 @@ const lagoOrnamentalGallery = [
   lagoOrnamental3,
   lagoOrnamental4,
   lagoOrnamental5,
+];
+
+const piscinaRasaGallery = [
+  piscinaRasa,
+  piscinaRasa1,
+  piscinaRasa2,
+  piscinaRasa3,
+  piscinaRasa4,
+  piscinaRasa5,
 ];
 
 interface CaseItem {
@@ -83,6 +99,7 @@ const cases: CaseItem[] = [
     category: "Piscinas",
     description: "Design moderno com área de descanso integrada",
     image: piscinaRasa,
+    gallery: piscinaRasaGallery,
   },
   {
     id: 4,
