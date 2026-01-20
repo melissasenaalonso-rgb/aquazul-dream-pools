@@ -39,7 +39,6 @@ import piscinaRasa1 from "@/assets/portfolio/piscina-rasa-1.jpg";
 import piscinaRasa2 from "@/assets/portfolio/piscina-rasa-2.jpg";
 import piscinaRasa3 from "@/assets/portfolio/piscina-rasa-3.jpg";
 import piscinaRasa4 from "@/assets/portfolio/piscina-rasa-4.jpg";
-import piscinaRasa5 from "@/assets/portfolio/piscina-rasa-5.jpg";
 
 // Import gallery images for Lago Ornamental 2
 import lagoOrnamental2_1 from "@/assets/portfolio/lago-ornamental-2-1.jpg";
