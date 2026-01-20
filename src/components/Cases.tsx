@@ -29,6 +29,11 @@ import piscinaResidencial3 from "@/assets/portfolio/piscina-residencial-3.jpg";
 import piscinaResidencial4 from "@/assets/portfolio/piscina-residencial-4.jpg";
 import piscinaResidencial5 from "@/assets/portfolio/piscina-residencial-5.jpg";
 
+// Import gallery images for Lagos Ornamentais
+import lagoOrnamental3 from "@/assets/portfolio/lago-ornamental-3.jpg";
+import lagoOrnamental4 from "@/assets/portfolio/lago-ornamental-4.jpg";
+import lagoOrnamental5 from "@/assets/portfolio/lago-ornamental-5.jpg";
+
 const piscinaResidencialGallery = [
   piscinaResidencial,
   piscinaResidencial1,
@@ -36,6 +41,14 @@ const piscinaResidencialGallery = [
   piscinaResidencial3,
   piscinaResidencial4,
   piscinaResidencial5,
+];
+
+const lagoOrnamentalGallery = [
+  lagoOrnamental1,
+  lagoOrnamental2,
+  lagoOrnamental3,
+  lagoOrnamental4,
+  lagoOrnamental5,
 ];
 
 interface CaseItem {
@@ -62,6 +75,7 @@ const cases: CaseItem[] = [
     category: "Lagos",
     description: "Lago com plantas aquáticas e pedras decorativas",
     image: lagoOrnamental1,
+    gallery: lagoOrnamentalGallery,
   },
   {
     id: 3,
@@ -76,6 +90,7 @@ const cases: CaseItem[] = [
     category: "Lagos",
     description: "Projeto natural integrado ao paisagismo",
     image: lagoOrnamental2,
+    gallery: lagoOrnamentalGallery,
   },
   {
     id: 5,
