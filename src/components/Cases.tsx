@@ -1,7 +1,19 @@
 import { useState } from "react";
-import { Plus, ExternalLink } from "lucide-react";
+import { Plus, ExternalLink, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogClose,
+} from "@/components/ui/dialog";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+} from "@/components/ui/carousel";
 
 // Import portfolio images
 import piscinaResidencial from "@/assets/portfolio/piscina-residencial.jpg";
@@ -10,13 +22,39 @@ import piscinaInfinity from "@/assets/portfolio/piscina-infinity.jpg";
 import lagoOrnamental1 from "@/assets/portfolio/lago-ornamental-1.jpg";
 import lagoOrnamental2 from "@/assets/portfolio/lago-ornamental-2.jpg";
 
-const cases = [
+// Import gallery images for Piscina Residencial
+import piscinaResidencial1 from "@/assets/portfolio/piscina-residencial-1.jpg";
+import piscinaResidencial2 from "@/assets/portfolio/piscina-residencial-2.jpg";
+import piscinaResidencial3 from "@/assets/portfolio/piscina-residencial-3.jpg";
+import piscinaResidencial4 from "@/assets/portfolio/piscina-residencial-4.jpg";
+import piscinaResidencial5 from "@/assets/portfolio/piscina-residencial-5.jpg";
+
+const piscinaResidencialGallery = [
+  piscinaResidencial,
+  piscinaResidencial1,
+  piscinaResidencial2,
+  piscinaResidencial3,
+  piscinaResidencial4,
+  piscinaResidencial5,
+];
+
+interface CaseItem {
+  id: number;
+  title: string;
+  category: string;
+  description: string;
+  image: string;
+  gallery?: string[];
+}
+
+const cases: CaseItem[] = [
   {
     id: 1,
     title: "Piscina Residencial",
     category: "Piscinas",
     description: "Projeto completo com vista panorâmica e deck em madeira",
     image: piscinaResidencial,
+    gallery: piscinaResidencialGallery,
   },
   {
     id: 2,
@@ -52,10 +90,19 @@ const categories = ["Todos", "Piscinas", "Lagos", "Produtos e Acessórios"];
 
 const Cases = () => {
   const [activeCategory, setActiveCategory] = useState("Todos");
+  const [selectedCase, setSelectedCase] = useState<CaseItem | null>(null);
+  const [isGalleryOpen, setIsGalleryOpen] = useState(false);
 
   const filteredCases = activeCategory === "Todos" 
     ? cases 
     : cases.filter(c => c.category === activeCategory);
+
+  const handleCaseClick = (caseItem: CaseItem) => {
+    if (caseItem.gallery && caseItem.gallery.length > 0) {
+      setSelectedCase(caseItem);
+      setIsGalleryOpen(true);
+    }
+  };
 
   return (
     <section id="cases" className="py-20 bg-muted/30">
@@ -95,8 +142,9 @@ const Cases = () => {
           {filteredCases.map((caseItem, index) => (
             <Card 
               key={caseItem.id}
-              className="group overflow-hidden bg-card border-border/50 shadow-card hover:shadow-glow transition-all duration-300"
+              className={`group overflow-hidden bg-card border-border/50 shadow-card hover:shadow-glow transition-all duration-300 ${caseItem.gallery ? 'cursor-pointer' : ''}`}
               style={{ animationDelay: `${index * 0.1}s` }}
+              onClick={() => handleCaseClick(caseItem)}
             >
               <div className="relative overflow-hidden aspect-[4/3]">
                 <img 
@@ -135,6 +183,67 @@ const Cases = () => {
           </Button>
         </div>
       </div>
+
+      {/* Gallery Modal */}
+      <Dialog open={isGalleryOpen} onOpenChange={setIsGalleryOpen}>
+        <DialogContent className="max-w-5xl w-[95vw] p-0 bg-secondary/95 backdrop-blur-lg border-border/50">
+          <div className="relative p-4">
+            {/* Header */}
+            <div className="flex items-center justify-between mb-4">
+              <div>
+                <h3 className="text-xl font-serif font-bold text-foreground">
+                  {selectedCase?.title}
+                </h3>
+                <p className="text-sm text-muted-foreground">
+                  {selectedCase?.description}
+                </p>
+              </div>
+              <DialogClose className="w-10 h-10 rounded-full bg-muted/50 flex items-center justify-center text-foreground hover:bg-muted transition-colors">
+                <X className="w-5 h-5" />
+              </DialogClose>
+            </div>
+
+            {/* Carousel */}
+            {selectedCase?.gallery && (
+              <Carousel className="w-full">
+                <CarouselContent>
+                  {selectedCase.gallery.map((image, index) => (
+                    <CarouselItem key={index}>
+                      <div className="aspect-[16/10] overflow-hidden rounded-lg">
+                        <img
+                          src={image}
+                          alt={`${selectedCase.title} - Imagem ${index + 1}`}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious className="left-2 bg-background/80 hover:bg-background border-border" />
+                <CarouselNext className="right-2 bg-background/80 hover:bg-background border-border" />
+              </Carousel>
+            )}
+
+            {/* Thumbnails */}
+            {selectedCase?.gallery && (
+              <div className="flex gap-2 mt-4 overflow-x-auto pb-2">
+                {selectedCase.gallery.map((image, index) => (
+                  <div
+                    key={index}
+                    className="flex-shrink-0 w-20 h-14 rounded-md overflow-hidden opacity-70 hover:opacity-100 transition-opacity cursor-pointer"
+                  >
+                    <img
+                      src={image}
+                      alt={`Thumbnail ${index + 1}`}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };
