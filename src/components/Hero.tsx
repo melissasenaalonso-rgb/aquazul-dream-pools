@@ -127,12 +127,14 @@ const Hero = () => {
                 Solicitar Orçamento Grátis
               </Button>
             </a>
-            <Button 
-              size="lg" 
-              className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold text-lg px-8 py-6 shadow-card"
-            >
-              Ver Nossos Projetos
-            </Button>
+            <a href="#cases">
+              <Button 
+                size="lg" 
+                className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold text-lg px-8 py-6 shadow-card"
+              >
+                Ver Nossos Projetos
+              </Button>
+            </a>
           </div>
 
           {/* Stats */}
