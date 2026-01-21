@@ -69,7 +69,6 @@ const piscinaRasaGallery = [
   piscinaRasa2,
   piscinaRasa3,
   piscinaRasa4,
-  piscinaRasa5,
 ];
 
 const lagoOrnamental2Gallery = [

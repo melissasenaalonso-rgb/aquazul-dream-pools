@@ -8,7 +8,7 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navLinks = [
-    { href: "#inicio", label: "Início", isRoute: false },
+    { href: "/", label: "Início", isRoute: true },
     { href: "/servicos", label: "Serviços", isRoute: true },
     { href: "#cases", label: "Projetos", isRoute: false },
     { href: "#sobre", label: "Sobre", isRoute: false },
@@ -68,7 +68,7 @@ const Header = () => {
       <div className="container mx-auto px-4 py-3">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <a href="#inicio" className="flex items-center gap-3 group">
+          <Link to="/" className="flex items-center gap-3 group">
             <img 
               src={logoAquazul} 
               alt="Aquazul Piscinas e Lagos" 
@@ -78,7 +78,7 @@ const Header = () => {
               <h1 className="text-xl font-serif font-bold text-secondary">Aquazul</h1>
               <p className="text-xs text-muted-foreground">Piscinas e Lagos</p>
             </div>
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-8">
