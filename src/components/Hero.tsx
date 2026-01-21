@@ -31,7 +31,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="inicio" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24">
+    <section id="inicio" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 md:pt-24">
       {/* Background carousel images */}
       {heroImages.map((image, index) => (
         <div
@@ -59,29 +59,29 @@ const Hero = () => {
         }}
       />
 
-      {/* Carousel navigation arrows */}
+      {/* Carousel navigation arrows - hidden on mobile */}
       <button
         onClick={prevSlide}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-card/20 backdrop-blur-sm hover:bg-card/40 text-primary-foreground p-2 rounded-full transition-all"
+        className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-20 bg-card/20 backdrop-blur-sm hover:bg-card/40 text-primary-foreground p-2 rounded-full transition-all hidden sm:flex"
         aria-label="Imagem anterior"
       >
-        <ChevronLeft className="w-6 h-6" />
+        <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
       </button>
       <button
         onClick={nextSlide}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-card/20 backdrop-blur-sm hover:bg-card/40 text-primary-foreground p-2 rounded-full transition-all"
+        className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-20 bg-card/20 backdrop-blur-sm hover:bg-card/40 text-primary-foreground p-2 rounded-full transition-all hidden sm:flex"
         aria-label="Próxima imagem"
       >
-        <ChevronRight className="w-6 h-6" />
+        <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
       </button>
 
       {/* Carousel indicators */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+      <div className="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-2">
         {heroImages.map((_, index) => (
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`w-3 h-3 rounded-full transition-all ${
+            className={`w-2.5 h-2.5 md:w-3 md:h-3 rounded-full transition-all ${
               index === currentSlide
                 ? "bg-primary-foreground scale-110"
                 : "bg-primary-foreground/40 hover:bg-primary-foreground/60"
@@ -92,45 +92,45 @@ const Hero = () => {
       </div>
       
 
-            <div className="container mx-auto px-4 relative z-10 text-center">
+      <div className="container mx-auto px-4 relative z-10 text-center">
         <div className="max-w-4xl mx-auto">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 bg-card/20 backdrop-blur-sm rounded-full px-6 py-2 mb-8 border border-primary-foreground/20 animate-fade-in">
-            <Award className="w-5 h-5 text-primary-foreground" />
-            <span className="text-primary-foreground font-semibold text-sm md:text-base">
+          <div className="inline-flex items-center gap-2 bg-card/20 backdrop-blur-sm rounded-full px-4 md:px-6 py-2 mb-6 md:mb-8 border border-primary-foreground/20 animate-fade-in">
+            <Award className="w-4 h-4 md:w-5 md:h-5 text-primary-foreground" />
+            <span className="text-primary-foreground font-semibold text-xs md:text-base">
               20 ANOS fazendo sonhos em piscinas
             </span>
           </div>
 
           {/* Main heading */}
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-primary-foreground mb-6 leading-tight animate-fade-in" style={{ animationDelay: "0.1s" }}>
+          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-primary-foreground mb-4 md:mb-6 leading-tight animate-fade-in" style={{ animationDelay: "0.1s" }}>
             Mais Lazer,{" "}
             <span className="relative">
               com Qualidade
-              <svg className="absolute -bottom-2 left-0 w-full h-3 text-accent" viewBox="0 0 200 12" preserveAspectRatio="none">
+              <svg className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-2 md:h-3 text-accent" viewBox="0 0 200 12" preserveAspectRatio="none">
                 <path d="M0,6 Q50,0 100,6 T200,6" fill="none" stroke="currentColor" strokeWidth="3"/>
               </svg>
             </span>
           </h1>
           {/* Subtitle */}
-          <p className="text-lg md:text-xl text-primary-foreground/90 mb-10 max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: "0.2s" }}>
+          <p className="text-base md:text-xl text-primary-foreground/90 mb-8 md:mb-10 max-w-2xl mx-auto px-2 animate-fade-in" style={{ animationDelay: "0.2s" }}>
             Construção de piscinas e lagos, com experiência e compromisso com seu sonho.
           </p>
 
           {/* CTA buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16 animate-fade-in" style={{ animationDelay: "0.3s" }}>
-            <a href="#contato">
+          <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center items-center mb-8 md:mb-16 px-4 animate-fade-in" style={{ animationDelay: "0.3s" }}>
+            <a href="#contato" className="w-full sm:w-auto">
               <Button 
                 size="lg" 
-                className="bg-card text-secondary hover:bg-card/90 font-semibold text-lg px-8 py-6 shadow-card"
+                className="w-full sm:w-auto bg-card text-secondary hover:bg-card/90 font-semibold text-base md:text-lg px-6 md:px-8 py-5 md:py-6 shadow-card"
               >
                 Solicitar Orçamento Grátis
               </Button>
             </a>
-            <a href="#cases">
+            <a href="#cases" className="w-full sm:w-auto">
               <Button 
                 size="lg" 
-                className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold text-lg px-8 py-6 shadow-card"
+                className="w-full sm:w-auto bg-accent text-accent-foreground hover:bg-accent/90 font-semibold text-base md:text-lg px-6 md:px-8 py-5 md:py-6 shadow-card"
               >
                 Ver Nossos Projetos
               </Button>
