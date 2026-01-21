@@ -46,6 +46,13 @@ import lagoOrnamental2_2 from "@/assets/portfolio/lago-ornamental-2-2.jpg";
 import lagoOrnamental2_3 from "@/assets/portfolio/lago-ornamental-2-3.jpg";
 import lagoOrnamental2_4 from "@/assets/portfolio/lago-ornamental-2-4.jpg";
 
+// Import gallery images for Piscina Infinity
+import piscinaInfinity1 from "@/assets/portfolio/piscina-infinity-1.jpg";
+import piscinaInfinity2 from "@/assets/portfolio/piscina-infinity-2.jpg";
+import piscinaInfinity3 from "@/assets/portfolio/piscina-infinity-3.jpg";
+import piscinaInfinity4 from "@/assets/portfolio/piscina-infinity-4.jpg";
+import piscinaInfinity5 from "@/assets/portfolio/piscina-infinity-5.jpg";
+
 const piscinaResidencialGallery = [
   piscinaResidencial,
   piscinaResidencial1,
@@ -77,6 +84,15 @@ const lagoOrnamental2Gallery = [
   lagoOrnamental2_2,
   lagoOrnamental2_3,
   lagoOrnamental2_4,
+];
+
+const piscinaInfinityGallery = [
+  piscinaInfinity,
+  piscinaInfinity1,
+  piscinaInfinity2,
+  piscinaInfinity3,
+  piscinaInfinity4,
+  piscinaInfinity5,
 ];
 
 interface CaseItem {
@@ -127,6 +143,7 @@ const cases: CaseItem[] = [
     category: "Piscinas",
     description: "Vista panorâmica com iluminação LED noturna",
     image: piscinaInfinity,
+    gallery: piscinaInfinityGallery,
   },
 ];
 
