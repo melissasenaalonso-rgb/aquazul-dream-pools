@@ -166,32 +166,33 @@ const Cases = () => {
   };
 
   return (
-    <section id="cases" className="py-20 bg-muted/30">
+    <section id="cases" className="py-12 md:py-20 bg-muted/30">
       <div className="container mx-auto px-4">
         {/* Section header */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <span className="inline-block text-primary font-semibold text-sm uppercase tracking-wider mb-4">
+        <div className="text-center max-w-3xl mx-auto mb-8 md:mb-12">
+          <span className="inline-block text-primary font-semibold text-xs md:text-sm uppercase tracking-wider mb-3 md:mb-4">
             Portfólio
           </span>
-          <h2 className="text-3xl md:text-5xl font-serif font-bold text-foreground mb-6">
+          <h2 className="text-2xl md:text-5xl font-serif font-bold text-foreground mb-4 md:mb-6">
             Nossos <span className="text-gradient">projetos realizados</span>
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-base md:text-lg text-muted-foreground px-2">
             Confira alguns dos nossos trabalhos e inspire-se para realizar o seu próximo projeto.
           </p>
         </div>
 
         {/* Category filters */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
+        <div className="flex flex-wrap justify-center gap-2 md:gap-3 mb-8 md:mb-12">
           {categories.map((category) => (
             <Button
               key={category}
               variant={activeCategory === category ? "default" : "outline"}
               onClick={() => setActiveCategory(category)}
-              className={activeCategory === category 
+              size="sm"
+              className={`text-sm md:text-base ${activeCategory === category 
                 ? "bg-primary text-primary-foreground" 
                 : "border-border text-foreground hover:border-primary hover:text-primary"
-              }
+              }`}
             >
               {category}
             </Button>
@@ -199,7 +200,7 @@ const Cases = () => {
         </div>
 
         {/* Cases grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
           {filteredCases.map((caseItem, index) => (
             <Card 
               key={caseItem.id}
@@ -213,7 +214,7 @@ const Cases = () => {
                   alt={caseItem.title}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-secondary/90 via-secondary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                <div className="absolute inset-0 bg-gradient-to-t from-secondary/90 via-secondary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden md:flex items-end p-6">
                   <div className="text-primary-foreground">
                     <span className="text-sm font-medium text-primary/80">{caseItem.category}</span>
                     <h3 className="text-xl font-serif font-bold mb-2">{caseItem.title}</h3>
@@ -224,21 +225,22 @@ const Cases = () => {
                   </button>
                 </div>
               </div>
-              <div className="p-4 md:hidden">
-                <span className="text-sm font-medium text-primary">{caseItem.category}</span>
-                <h3 className="text-lg font-serif font-bold text-card-foreground">{caseItem.title}</h3>
-                <p className="text-sm text-muted-foreground">{caseItem.description}</p>
+              {/* Always visible on mobile */}
+              <div className="p-4">
+                <span className="text-xs md:text-sm font-medium text-primary">{caseItem.category}</span>
+                <h3 className="text-base md:text-lg font-serif font-bold text-card-foreground">{caseItem.title}</h3>
+                <p className="text-xs md:text-sm text-muted-foreground">{caseItem.description}</p>
               </div>
             </Card>
           ))}
         </div>
 
         {/* Add more CTA */}
-        <div className="text-center mt-12">
-          <p className="text-muted-foreground mb-4">
+        <div className="text-center mt-8 md:mt-12">
+          <p className="text-sm md:text-base text-muted-foreground mb-4">
             Quer adicionar fotos dos seus projetos?
           </p>
-          <Button variant="outline" className="gap-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground">
+          <Button variant="outline" size="sm" className="gap-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground">
             <Plus className="w-4 h-4" />
             Adicionar Projeto
           </Button>
@@ -247,20 +249,20 @@ const Cases = () => {
 
       {/* Gallery Modal */}
       <Dialog open={isGalleryOpen} onOpenChange={setIsGalleryOpen}>
-        <DialogContent className="max-w-5xl w-[95vw] p-0 bg-secondary/95 backdrop-blur-lg border-border/50">
-          <div className="relative p-4">
+        <DialogContent className="max-w-5xl w-[95vw] max-h-[90vh] p-0 bg-secondary/95 backdrop-blur-lg border-border/50 overflow-hidden">
+          <div className="relative p-3 md:p-4 overflow-y-auto max-h-[90vh]">
             {/* Header */}
-            <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center justify-between mb-3 md:mb-4">
               <div>
-                <h3 className="text-xl font-serif font-bold text-foreground">
+                <h3 className="text-lg md:text-xl font-serif font-bold text-foreground">
                   {selectedCase?.title}
                 </h3>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-xs md:text-sm text-muted-foreground">
                   {selectedCase?.description}
                 </p>
               </div>
-              <DialogClose className="w-10 h-10 rounded-full bg-muted/50 flex items-center justify-center text-foreground hover:bg-muted transition-colors">
-                <X className="w-5 h-5" />
+              <DialogClose className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-muted/50 flex items-center justify-center text-foreground hover:bg-muted transition-colors flex-shrink-0">
+                <X className="w-4 h-4 md:w-5 md:h-5" />
               </DialogClose>
             </div>
 
@@ -270,7 +272,7 @@ const Cases = () => {
                 <CarouselContent>
                   {selectedCase.gallery.map((image, index) => (
                     <CarouselItem key={index}>
-                      <div className="aspect-[16/10] overflow-hidden rounded-lg">
+                      <div className="aspect-[16/10] md:aspect-[16/10] overflow-hidden rounded-lg">
                         <img
                           src={image}
                           alt={`${selectedCase.title} - Imagem ${index + 1}`}
@@ -280,18 +282,18 @@ const Cases = () => {
                     </CarouselItem>
                   ))}
                 </CarouselContent>
-                <CarouselPrevious className="left-2 bg-background/80 hover:bg-background border-border" />
-                <CarouselNext className="right-2 bg-background/80 hover:bg-background border-border" />
+                <CarouselPrevious className="left-1 md:left-2 bg-background/80 hover:bg-background border-border w-8 h-8 md:w-10 md:h-10" />
+                <CarouselNext className="right-1 md:right-2 bg-background/80 hover:bg-background border-border w-8 h-8 md:w-10 md:h-10" />
               </Carousel>
             )}
 
             {/* Thumbnails */}
             {selectedCase?.gallery && (
-              <div className="flex gap-2 mt-4 overflow-x-auto pb-2">
+              <div className="flex gap-1.5 md:gap-2 mt-3 md:mt-4 overflow-x-auto pb-2">
                 {selectedCase.gallery.map((image, index) => (
                   <div
                     key={index}
-                    className="flex-shrink-0 w-20 h-14 rounded-md overflow-hidden opacity-70 hover:opacity-100 transition-opacity cursor-pointer"
+                    className="flex-shrink-0 w-14 h-10 md:w-20 md:h-14 rounded-md overflow-hidden opacity-70 hover:opacity-100 transition-opacity cursor-pointer"
                   >
                     <img
                       src={image}

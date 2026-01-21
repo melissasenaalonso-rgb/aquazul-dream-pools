@@ -38,27 +38,27 @@ const partners = [
 
 const Partners = () => {
   return (
-    <section className="py-16 bg-muted/30">
+    <section className="py-12 md:py-16 bg-muted/30">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+        <div className="text-center mb-8 md:mb-12">
+          <h2 className="text-2xl md:text-4xl font-bold text-foreground mb-3 md:mb-4">
             Marcas Parceiras
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-sm md:text-base text-muted-foreground max-w-2xl mx-auto px-2">
             Trabalhamos com as melhores marcas do mercado para garantir qualidade e durabilidade em todos os nossos projetos.
           </p>
         </div>
         
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6 items-center justify-items-center">
+        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-3 md:gap-6 items-center justify-items-center">
           {partners.map((partner) => (
             <div
               key={partner.name}
-              className="bg-background rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 flex items-center justify-center w-full h-24 group"
+              className="bg-background rounded-lg md:rounded-xl p-2 md:p-4 shadow-sm hover:shadow-md transition-all duration-300 flex items-center justify-center w-full h-16 md:h-24 group"
             >
               <img 
                 src={partner.logo} 
                 alt={`Logo ${partner.name}`}
-                className="max-h-16 max-w-full object-contain group-hover:scale-105 transition-transform duration-300"
+                className="max-h-10 md:max-h-16 max-w-full object-contain group-hover:scale-105 transition-transform duration-300"
               />
             </div>
           ))}

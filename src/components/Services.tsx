@@ -26,40 +26,40 @@ const services = [
 
 const Services = () => {
   return (
-    <section id="servicos" className="py-20 bg-gradient-water">
+    <section id="servicos" className="py-12 md:py-20 bg-gradient-water">
       <div className="container mx-auto px-4">
         {/* Section header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="inline-block text-primary font-semibold text-sm uppercase tracking-wider mb-4">
+        <div className="text-center max-w-3xl mx-auto mb-10 md:mb-16">
+          <span className="inline-block text-primary font-semibold text-xs md:text-sm uppercase tracking-wider mb-3 md:mb-4">
             Nossos Serviços
           </span>
-          <h2 className="text-3xl md:text-5xl font-serif font-bold text-foreground mb-6">
+          <h2 className="text-2xl md:text-5xl font-serif font-bold text-foreground mb-4 md:mb-6">
             Soluções completas para seu{" "}
             <span className="text-gradient">projeto aquático</span>
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-base md:text-lg text-muted-foreground px-2">
             Da construção à manutenção, oferecemos tudo que você precisa para realizar o sonho da piscina ou lago perfeito.
           </p>
         </div>
 
         {/* Services grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           {services.map((service, index) => (
             <Card 
               key={service.title}
               className="group bg-card border-border/50 hover:border-primary/30 shadow-card hover:shadow-glow transition-all duration-300 hover:-translate-y-1"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <CardHeader>
-                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                  <service.icon className="w-7 h-7 text-primary" />
+              <CardHeader className="pb-2 md:pb-4">
+                <div className="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-3 md:mb-4 group-hover:bg-primary/20 transition-colors">
+                  <service.icon className="w-6 h-6 md:w-7 md:h-7 text-primary" />
                 </div>
-                <CardTitle className="text-xl font-serif text-card-foreground group-hover:text-primary transition-colors">
+                <CardTitle className="text-lg md:text-xl font-serif text-card-foreground group-hover:text-primary transition-colors">
                   {service.title}
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <CardDescription className="text-base text-muted-foreground">
+                <CardDescription className="text-sm md:text-base text-muted-foreground">
                   {service.description}
                 </CardDescription>
               </CardContent>
