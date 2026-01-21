@@ -147,7 +147,7 @@ const cases: CaseItem[] = [
   },
 ];
 
-const categories = ["Todos", "Piscinas", "Lagos", "Produtos e Acessórios"];
+const categories = ["Todos", "Piscinas", "Lagos"];
 
 const Cases = () => {
   const [activeCategory, setActiveCategory] = useState("Todos");
