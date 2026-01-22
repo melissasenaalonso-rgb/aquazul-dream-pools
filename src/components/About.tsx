@@ -64,7 +64,7 @@ const About = () => {
             </p>
 
             {/* Features list */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 mb-6 md:mb-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 md:gap-4 mb-6 md:mb-8 mt-4 md:mt-0">
               {features.map((feature) => (
                 <div key={feature} className="flex items-center gap-2 md:gap-3">
                   <CheckCircle className="w-4 h-4 md:w-5 md:h-5 text-accent flex-shrink-0" />
