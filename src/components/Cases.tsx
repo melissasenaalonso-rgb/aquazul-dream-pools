@@ -124,18 +124,6 @@ const Cases = () => {
   const [activeCategory, setActiveCategory] = useState("Todos");
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
-  // Get images for grid view based on category
-  const getGridImages = () => {
-    if (activeCategory === "Piscinas") {
-      return [...piscinasAlvenariaImages, ...piscinasVinilImages];
-    }
-    if (activeCategory === "Lagos") {
-      return lagosOrnamentaisImages;
-    }
-    return [];
-  };
-
-  const gridImages = getGridImages();
 
   return (
     <section id="cases" className="py-12 md:py-20 bg-muted/30">
@@ -205,18 +193,75 @@ const Cases = () => {
           </div>
         )}
 
-        {/* Grid view for "Piscinas" or "Lagos" */}
-        {activeCategory !== "Todos" && (
+        {/* Grid view for "Piscinas" */}
+        {activeCategory === "Piscinas" && (
+          <div className="space-y-8 md:space-y-12">
+            {/* Piscinas Alvenaria Section */}
+            <div>
+              <Button
+                variant="outline"
+                className="mb-4 md:mb-6 border-primary text-primary pointer-events-none"
+                size="sm"
+              >
+                Piscinas Alvenaria
+              </Button>
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
+                {piscinasAlvenariaImages.map((image, index) => (
+                  <div
+                    key={`alvenaria-${index}`}
+                    className="aspect-square overflow-hidden rounded-lg cursor-pointer group"
+                    onClick={() => setSelectedImage(image)}
+                  >
+                    <img
+                      src={image}
+                      alt={`Piscina Alvenaria - Imagem ${index + 1}`}
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Piscinas Vinil Section */}
+            <div>
+              <Button
+                variant="outline"
+                className="mb-4 md:mb-6 border-primary text-primary pointer-events-none"
+                size="sm"
+              >
+                Piscinas Vinil
+              </Button>
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
+                {piscinasVinilImages.map((image, index) => (
+                  <div
+                    key={`vinil-${index}`}
+                    className="aspect-square overflow-hidden rounded-lg cursor-pointer group"
+                    onClick={() => setSelectedImage(image)}
+                  >
+                    <img
+                      src={image}
+                      alt={`Piscina Vinil - Imagem ${index + 1}`}
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Grid view for "Lagos" */}
+        {activeCategory === "Lagos" && (
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
-            {gridImages.map((image, index) => (
+            {lagosOrnamentaisImages.map((image, index) => (
               <div
-                key={index}
+                key={`lago-${index}`}
                 className="aspect-square overflow-hidden rounded-lg cursor-pointer group"
                 onClick={() => setSelectedImage(image)}
               >
                 <img
                   src={image}
-                  alt={`${activeCategory} - Imagem ${index + 1}`}
+                  alt={`Lago Ornamental - Imagem ${index + 1}`}
                   className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                 />
               </div>
