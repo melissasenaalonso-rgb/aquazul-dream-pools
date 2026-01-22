@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Plus, ExternalLink, X, ChevronLeft, ChevronRight } from "lucide-react";
+import { Plus, X } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import {
@@ -7,13 +7,6 @@ import {
   DialogContent,
   DialogClose,
 } from "@/components/ui/dialog";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselPrevious,
-  CarouselNext,
-} from "@/components/ui/carousel";
 
 // Import portfolio images
 import piscinaResidencial from "@/assets/portfolio/piscina-residencial.jpg";
@@ -22,7 +15,7 @@ import piscinaInfinity from "@/assets/portfolio/piscina-infinity.jpg";
 import lagoOrnamental1 from "@/assets/portfolio/lago-ornamental-1.jpg";
 import lagoOrnamental2 from "@/assets/portfolio/lago-ornamental-2.jpg";
 
-// Import gallery images for Piscina Residencial
+// Import gallery images for Piscina Residencial (Alvenaria)
 import piscinaResidencial1 from "@/assets/portfolio/piscina-residencial-1.jpg";
 import piscinaResidencial2 from "@/assets/portfolio/piscina-residencial-2.jpg";
 import piscinaResidencial3 from "@/assets/portfolio/piscina-residencial-3.jpg";
@@ -34,7 +27,7 @@ import lagoOrnamental3 from "@/assets/portfolio/lago-ornamental-3.jpg";
 import lagoOrnamental4 from "@/assets/portfolio/lago-ornamental-4.jpg";
 import lagoOrnamental5 from "@/assets/portfolio/lago-ornamental-5.jpg";
 
-// Import gallery images for Piscina Rasa
+// Import gallery images for Piscina Rasa (Vinil)
 import piscinaRasa1 from "@/assets/portfolio/piscina-rasa-1.jpg";
 import piscinaRasa2 from "@/assets/portfolio/piscina-rasa-2.jpg";
 import piscinaRasa3 from "@/assets/portfolio/piscina-rasa-3.jpg";
@@ -46,14 +39,15 @@ import lagoOrnamental2_2 from "@/assets/portfolio/lago-ornamental-2-2.jpg";
 import lagoOrnamental2_3 from "@/assets/portfolio/lago-ornamental-2-3.jpg";
 import lagoOrnamental2_4 from "@/assets/portfolio/lago-ornamental-2-4.jpg";
 
-// Import gallery images for Piscina Infinity
+// Import gallery images for Piscina Infinity (Vinil)
 import piscinaInfinity1 from "@/assets/portfolio/piscina-infinity-1.jpg";
 import piscinaInfinity2 from "@/assets/portfolio/piscina-infinity-2.jpg";
 import piscinaInfinity3 from "@/assets/portfolio/piscina-infinity-3.jpg";
 import piscinaInfinity4 from "@/assets/portfolio/piscina-infinity-4.jpg";
 import piscinaInfinity5 from "@/assets/portfolio/piscina-infinity-5.jpg";
 
-const piscinaResidencialGallery = [
+// Gallery arrays for each category
+const piscinasAlvenariaImages = [
   piscinaResidencial,
   piscinaResidencial1,
   piscinaResidencial2,
@@ -62,31 +56,12 @@ const piscinaResidencialGallery = [
   piscinaResidencial5,
 ];
 
-const lagoOrnamentalGallery = [
-  lagoOrnamental1,
-  lagoOrnamental2,
-  lagoOrnamental3,
-  lagoOrnamental4,
-  lagoOrnamental5,
-];
-
-const piscinaRasaGallery = [
+const piscinasVinilImages = [
   piscinaRasa,
   piscinaRasa1,
   piscinaRasa2,
   piscinaRasa3,
   piscinaRasa4,
-];
-
-const lagoOrnamental2Gallery = [
-  lagoOrnamental2,
-  lagoOrnamental2_1,
-  lagoOrnamental2_2,
-  lagoOrnamental2_3,
-  lagoOrnamental2_4,
-];
-
-const piscinaInfinityGallery = [
   piscinaInfinity,
   piscinaInfinity1,
   piscinaInfinity2,
@@ -95,55 +70,51 @@ const piscinaInfinityGallery = [
   piscinaInfinity5,
 ];
 
+const lagosOrnamentaisImages = [
+  lagoOrnamental1,
+  lagoOrnamental2,
+  lagoOrnamental3,
+  lagoOrnamental4,
+  lagoOrnamental5,
+  lagoOrnamental2_1,
+  lagoOrnamental2_2,
+  lagoOrnamental2_3,
+  lagoOrnamental2_4,
+];
+
 interface CaseItem {
   id: number;
   title: string;
   category: string;
   description: string;
   image: string;
-  gallery?: string[];
+  gallery: string[];
 }
 
 const cases: CaseItem[] = [
   {
     id: 1,
-    title: "Piscina Residencial",
+    title: "Piscinas Alvenaria",
     category: "Piscinas",
-    description: "Projeto completo com vista panorâmica e deck em madeira",
+    description: "Projetos em alvenaria com acabamento premium",
     image: piscinaResidencial,
-    gallery: piscinaResidencialGallery,
+    gallery: piscinasAlvenariaImages,
   },
   {
     id: 2,
-    title: "Lago Ornamental",
-    category: "Lagos",
-    description: "Lago com plantas aquáticas e pedras decorativas",
-    image: lagoOrnamental1,
-    gallery: lagoOrnamentalGallery,
+    title: "Piscinas Vinil",
+    category: "Piscinas",
+    description: "Piscinas com revestimento em vinil de alta qualidade",
+    image: piscinaRasa,
+    gallery: piscinasVinilImages,
   },
   {
     id: 3,
-    title: "Piscina Rasa",
-    category: "Piscinas",
-    description: "Design moderno com área de descanso integrada",
-    image: piscinaRasa,
-    gallery: piscinaRasaGallery,
-  },
-  {
-    id: 4,
-    title: "Lago Ornamental",
+    title: "Lagos Ornamentais",
     category: "Lagos",
-    description: "Projeto natural integrado ao paisagismo",
-    image: lagoOrnamental2,
-    gallery: lagoOrnamental2Gallery,
-  },
-  {
-    id: 5,
-    title: "Piscina Infinity",
-    category: "Piscinas",
-    description: "Vista panorâmica com iluminação LED noturna",
-    image: piscinaInfinity,
-    gallery: piscinaInfinityGallery,
+    description: "Lagos decorativos integrados ao paisagismo",
+    image: lagoOrnamental1,
+    gallery: lagosOrnamentaisImages,
   },
 ];
 
@@ -151,19 +122,20 @@ const categories = ["Todos", "Piscinas", "Lagos"];
 
 const Cases = () => {
   const [activeCategory, setActiveCategory] = useState("Todos");
-  const [selectedCase, setSelectedCase] = useState<CaseItem | null>(null);
-  const [isGalleryOpen, setIsGalleryOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
-  const filteredCases = activeCategory === "Todos" 
-    ? cases 
-    : cases.filter(c => c.category === activeCategory);
-
-  const handleCaseClick = (caseItem: CaseItem) => {
-    if (caseItem.gallery && caseItem.gallery.length > 0) {
-      setSelectedCase(caseItem);
-      setIsGalleryOpen(true);
+  // Get images for grid view based on category
+  const getGridImages = () => {
+    if (activeCategory === "Piscinas") {
+      return [...piscinasAlvenariaImages, ...piscinasVinilImages];
     }
+    if (activeCategory === "Lagos") {
+      return lagosOrnamentaisImages;
+    }
+    return [];
   };
+
+  const gridImages = getGridImages();
 
   return (
     <section id="cases" className="py-12 md:py-20 bg-muted/30">
@@ -199,41 +171,58 @@ const Cases = () => {
           ))}
         </div>
 
-        {/* Cases grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-          {filteredCases.map((caseItem, index) => (
-            <Card 
-              key={caseItem.id}
-              className={`group overflow-hidden bg-card border-border/50 shadow-card hover:shadow-glow transition-all duration-300 ${caseItem.gallery ? 'cursor-pointer' : ''}`}
-              style={{ animationDelay: `${index * 0.1}s` }}
-              onClick={() => handleCaseClick(caseItem)}
-            >
-              <div className="relative overflow-hidden aspect-[4/3]">
-                <img 
-                  src={caseItem.image} 
-                  alt={caseItem.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-secondary/90 via-secondary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden md:flex items-end p-6">
-                  <div className="text-primary-foreground">
-                    <span className="text-sm font-medium text-primary/80">{caseItem.category}</span>
-                    <h3 className="text-xl font-serif font-bold mb-2">{caseItem.title}</h3>
-                    <p className="text-sm opacity-90">{caseItem.description}</p>
+        {/* Cards view for "Todos" */}
+        {activeCategory === "Todos" && (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+            {cases.map((caseItem, index) => (
+              <Card 
+                key={caseItem.id}
+                className="group overflow-hidden bg-card border-border/50 shadow-card hover:shadow-glow transition-all duration-300"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className="relative overflow-hidden aspect-[4/3]">
+                  <img 
+                    src={caseItem.image} 
+                    alt={caseItem.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-secondary/90 via-secondary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden md:flex items-end p-6">
+                    <div className="text-primary-foreground">
+                      <span className="text-sm font-medium text-primary/80">{caseItem.category}</span>
+                      <h3 className="text-xl font-serif font-bold mb-2">{caseItem.title}</h3>
+                      <p className="text-sm opacity-90">{caseItem.description}</p>
+                    </div>
                   </div>
-                  <button className="absolute top-4 right-4 w-10 h-10 rounded-full bg-primary/20 backdrop-blur-sm flex items-center justify-center text-primary-foreground hover:bg-primary/40 transition-colors">
-                    <ExternalLink className="w-5 h-5" />
-                  </button>
                 </div>
+                {/* Always visible info */}
+                <div className="p-4">
+                  <span className="text-xs md:text-sm font-medium text-primary">{caseItem.category}</span>
+                  <h3 className="text-base md:text-lg font-serif font-bold text-card-foreground">{caseItem.title}</h3>
+                  <p className="text-xs md:text-sm text-muted-foreground">{caseItem.description}</p>
+                </div>
+              </Card>
+            ))}
+          </div>
+        )}
+
+        {/* Grid view for "Piscinas" or "Lagos" */}
+        {activeCategory !== "Todos" && (
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
+            {gridImages.map((image, index) => (
+              <div
+                key={index}
+                className="aspect-square overflow-hidden rounded-lg cursor-pointer group"
+                onClick={() => setSelectedImage(image)}
+              >
+                <img
+                  src={image}
+                  alt={`${activeCategory} - Imagem ${index + 1}`}
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                />
               </div>
-              {/* Always visible on mobile */}
-              <div className="p-4">
-                <span className="text-xs md:text-sm font-medium text-primary">{caseItem.category}</span>
-                <h3 className="text-base md:text-lg font-serif font-bold text-card-foreground">{caseItem.title}</h3>
-                <p className="text-xs md:text-sm text-muted-foreground">{caseItem.description}</p>
-              </div>
-            </Card>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
 
         {/* Add more CTA */}
         <div className="text-center mt-8 md:mt-12">
@@ -247,62 +236,19 @@ const Cases = () => {
         </div>
       </div>
 
-      {/* Gallery Modal */}
-      <Dialog open={isGalleryOpen} onOpenChange={setIsGalleryOpen}>
-        <DialogContent className="max-w-5xl w-[95vw] max-h-[90vh] p-0 bg-secondary/95 backdrop-blur-lg border-border/50 overflow-hidden">
-          <div className="relative p-3 md:p-4 overflow-y-auto max-h-[90vh]">
-            {/* Header */}
-            <div className="flex items-center justify-between mb-3 md:mb-4">
-              <div>
-                <h3 className="text-lg md:text-xl font-serif font-bold text-foreground">
-                  {selectedCase?.title}
-                </h3>
-                <p className="text-xs md:text-sm text-muted-foreground">
-                  {selectedCase?.description}
-                </p>
-              </div>
-              <DialogClose className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-muted/50 flex items-center justify-center text-foreground hover:bg-muted transition-colors flex-shrink-0">
-                <X className="w-4 h-4 md:w-5 md:h-5" />
-              </DialogClose>
-            </div>
-
-            {/* Carousel */}
-            {selectedCase?.gallery && (
-              <Carousel className="w-full">
-                <CarouselContent>
-                  {selectedCase.gallery.map((image, index) => (
-                    <CarouselItem key={index}>
-                      <div className="aspect-[16/10] md:aspect-[16/10] overflow-hidden rounded-lg">
-                        <img
-                          src={image}
-                          alt={`${selectedCase.title} - Imagem ${index + 1}`}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                    </CarouselItem>
-                  ))}
-                </CarouselContent>
-                <CarouselPrevious className="left-1 md:left-2 bg-background/80 hover:bg-background border-border w-8 h-8 md:w-10 md:h-10" />
-                <CarouselNext className="right-1 md:right-2 bg-background/80 hover:bg-background border-border w-8 h-8 md:w-10 md:h-10" />
-              </Carousel>
-            )}
-
-            {/* Thumbnails */}
-            {selectedCase?.gallery && (
-              <div className="flex gap-1.5 md:gap-2 mt-3 md:mt-4 overflow-x-auto pb-2">
-                {selectedCase.gallery.map((image, index) => (
-                  <div
-                    key={index}
-                    className="flex-shrink-0 w-14 h-10 md:w-20 md:h-14 rounded-md overflow-hidden opacity-70 hover:opacity-100 transition-opacity cursor-pointer"
-                  >
-                    <img
-                      src={image}
-                      alt={`Thumbnail ${index + 1}`}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                ))}
-              </div>
+      {/* Image Modal */}
+      <Dialog open={!!selectedImage} onOpenChange={() => setSelectedImage(null)}>
+        <DialogContent className="max-w-4xl w-[95vw] p-0 bg-secondary/95 backdrop-blur-lg border-border/50 overflow-hidden">
+          <div className="relative">
+            <DialogClose className="absolute top-3 right-3 z-10 w-8 h-8 md:w-10 md:h-10 rounded-full bg-muted/50 flex items-center justify-center text-foreground hover:bg-muted transition-colors">
+              <X className="w-4 h-4 md:w-5 md:h-5" />
+            </DialogClose>
+            {selectedImage && (
+              <img
+                src={selectedImage}
+                alt="Imagem ampliada"
+                className="w-full h-auto max-h-[85vh] object-contain"
+              />
             )}
           </div>
         </DialogContent>
