@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Plus, X } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -82,6 +82,8 @@ const lagosOrnamentaisImages = [
   lagoOrnamental2_4,
 ];
 
+type PoolType = "alvenaria" | "vinil" | null;
+
 interface CaseItem {
   id: number;
   title: string;
@@ -89,6 +91,7 @@ interface CaseItem {
   description: string;
   image: string;
   gallery: string[];
+  poolType?: PoolType;
 }
 
 const cases: CaseItem[] = [
@@ -99,6 +102,7 @@ const cases: CaseItem[] = [
     description: "Projetos em alvenaria com acabamento premium",
     image: piscinaResidencial,
     gallery: piscinasAlvenariaImages,
+    poolType: "alvenaria",
   },
   {
     id: 2,
@@ -107,6 +111,7 @@ const cases: CaseItem[] = [
     description: "Piscinas com revestimento em vinil de alta qualidade",
     image: piscinaRasa,
     gallery: piscinasVinilImages,
+    poolType: "vinil",
   },
   {
     id: 3,
@@ -123,6 +128,30 @@ const categories = ["Todos", "Piscinas", "Lagos"];
 const Cases = () => {
   const [activeCategory, setActiveCategory] = useState("Todos");
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [scrollToSection, setScrollToSection] = useState<PoolType>(null);
+  
+  const alvenariaRef = useRef<HTMLDivElement>(null);
+  const vinilRef = useRef<HTMLDivElement>(null);
+
+  // Handle scroll to section after category change
+  useEffect(() => {
+    if (activeCategory === "Piscinas" && scrollToSection) {
+      const ref = scrollToSection === "alvenaria" ? alvenariaRef : vinilRef;
+      setTimeout(() => {
+        ref.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+        setScrollToSection(null);
+      }, 100);
+    }
+  }, [activeCategory, scrollToSection]);
+
+  const handleCardClick = (caseItem: CaseItem) => {
+    if (caseItem.poolType) {
+      setScrollToSection(caseItem.poolType);
+      setActiveCategory("Piscinas");
+    } else if (caseItem.category === "Lagos") {
+      setActiveCategory("Lagos");
+    }
+  };
 
 
   return (
@@ -165,8 +194,9 @@ const Cases = () => {
             {cases.map((caseItem, index) => (
               <Card 
                 key={caseItem.id}
-                className="group overflow-hidden bg-card border-border/50 shadow-card hover:shadow-glow transition-all duration-300"
+                className="group overflow-hidden bg-card border-border/50 shadow-card hover:shadow-glow transition-all duration-300 cursor-pointer"
                 style={{ animationDelay: `${index * 0.1}s` }}
+                onClick={() => handleCardClick(caseItem)}
               >
                 <div className="relative overflow-hidden aspect-[4/3]">
                   <img 
@@ -197,7 +227,7 @@ const Cases = () => {
         {activeCategory === "Piscinas" && (
           <div className="space-y-8 md:space-y-12">
             {/* Piscinas Alvenaria Section */}
-            <div>
+            <div ref={alvenariaRef} className="scroll-mt-24">
               <Button
                 variant="outline"
                 className="mb-4 md:mb-6 border-primary text-primary pointer-events-none"
@@ -223,7 +253,7 @@ const Cases = () => {
             </div>
 
             {/* Piscinas Vinil Section */}
-            <div>
+            <div ref={vinilRef} className="scroll-mt-24">
               <Button
                 variant="outline"
                 className="mb-4 md:mb-6 border-primary text-primary pointer-events-none"
