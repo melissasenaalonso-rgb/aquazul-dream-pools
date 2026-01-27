@@ -41,7 +41,7 @@ const Header = () => {
               <Instagram className="w-5 h-5" />
             </a>
             <a 
-              href="https://facebook.com/aquazulpiscinas" 
+              href="https://www.facebook.com/profile.php?id=61572957052635&locale=pt_BR" 
               target="_blank" 
               rel="noopener noreferrer"
               className="hover:text-primary transition-colors"
@@ -50,7 +50,7 @@ const Header = () => {
               <Facebook className="w-5 h-5" />
             </a>
             <a 
-              href="https://www.facebook.com/profile.php?id=61572957052635&locale=pt_BR" 
+              href="https://wa.me/5511947389962" 
               target="_blank" 
               rel="noopener noreferrer"
               className="hover:text-primary transition-colors"
