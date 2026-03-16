@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Phone, Mail, MapPin, Clock, Send, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -33,82 +33,114 @@ const contactInfo = [
   },
 ];
 
+const LIMITS = { nome: 100, email: 150, telefone: 20, mensagem: 1000 };
+
+const sanitize = (str: string) =>
+  str.replace(/[<>"'/]/g, (ch) =>
+    ({ "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#x27;", "/": "&#x2F;" }[ch] ?? ch)
+  );
+
+const isValidEmail = (email: string) =>
+  /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
+
+const isValidBrazilianPhone = (phone: string) =>
+  /^\(?\d{2}\)?\s?\d{4,5}-?\d{4}$/.test(phone.trim());
+
 const Contact = () => {
   const { toast } = useToast();
+  const lastSubmitRef = useRef(0);
   const [formData, setFormData] = useState({
     nome: "",
     telefone: "",
     email: "",
     servico: "",
     mensagem: "",
+    _gotcha: "",
   });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    const limit = LIMITS[name as keyof typeof LIMITS];
+    const capped = limit ? value.slice(0, limit) : value;
+    setFormData(prev => ({ ...prev, [name]: capped }));
   };
 
   const validateForm = () => {
     if (!formData.nome.trim() || !formData.telefone.trim() || !formData.email.trim()) {
-      toast({
-        title: "Campos obrigatórios",
-        description: "Por favor, preencha nome, telefone e e-mail.",
-        variant: "destructive",
-      });
+      toast({ title: "Campos obrigatórios", description: "Por favor, preencha nome, telefone e e-mail.", variant: "destructive" });
+      return false;
+    }
+    if (!isValidEmail(formData.email.trim())) {
+      toast({ title: "E-mail inválido", description: "Por favor, insira um e-mail válido.", variant: "destructive" });
+      return false;
+    }
+    if (!isValidBrazilianPhone(formData.telefone)) {
+      toast({ title: "Telefone inválido", description: "Insira um telefone brasileiro válido. Ex: (11) 99999-9999", variant: "destructive" });
       return false;
     }
     return true;
   };
 
+  const checkRateLimit = () => {
+    const now = Date.now();
+    if (now - lastSubmitRef.current < 10000) {
+      toast({ title: "Aguarde", description: "Espere alguns segundos antes de enviar novamente.", variant: "destructive" });
+      return false;
+    }
+    lastSubmitRef.current = now;
+    return true;
+  };
+
+  const isBot = () => formData._gotcha.length > 0;
+
+  const fakeBotSuccess = () => {
+    toast({ title: "Mensagem enviada!", description: "Obrigado pelo contato." });
+    clearForm();
+  };
+
   const handleWhatsApp = () => {
-    if (!validateForm()) return;
+    if (isBot()) return fakeBotSuccess();
+    if (!validateForm() || !checkRateLimit()) return;
 
-    const servicoTexto = formData.servico || "Não especificado";
-    const mensagemTexto = formData.mensagem.trim() || "Sem mensagem adicional";
+    const safe = {
+      nome: sanitize(formData.nome.trim()),
+      telefone: sanitize(formData.telefone.trim()),
+      email: sanitize(formData.email.trim()),
+      servico: sanitize(formData.servico || "Não especificado"),
+      mensagem: sanitize(formData.mensagem.trim() || "Sem mensagem adicional"),
+    };
 
-    const mensagemWhatsApp = `*Novo Orçamento - Aquazul*%0A%0A*Nome:* ${encodeURIComponent(formData.nome)}%0A*Telefone:* ${encodeURIComponent(formData.telefone)}%0A*E-mail:* ${encodeURIComponent(formData.email)}%0A*Serviço:* ${encodeURIComponent(servicoTexto)}%0A*Mensagem:* ${encodeURIComponent(mensagemTexto)}`;
+    const msg = `*Novo Orçamento - Aquazul*%0A%0A*Nome:* ${encodeURIComponent(safe.nome)}%0A*Telefone:* ${encodeURIComponent(safe.telefone)}%0A*E-mail:* ${encodeURIComponent(safe.email)}%0A*Serviço:* ${encodeURIComponent(safe.servico)}%0A*Mensagem:* ${encodeURIComponent(safe.mensagem)}`;
+    window.open(`https://wa.me/5511947389962?text=${msg}`, "_blank");
 
-    const whatsappUrl = `https://wa.me/5511947389962?text=${mensagemWhatsApp}`;
-    window.open(whatsappUrl, "_blank");
-
-    toast({
-      title: "Redirecionando para WhatsApp",
-      description: "Complete o envio da mensagem no WhatsApp.",
-    });
-
+    toast({ title: "Redirecionando para WhatsApp", description: "Complete o envio da mensagem no WhatsApp." });
     clearForm();
   };
 
   const handleEmail = () => {
-    if (!validateForm()) return;
+    if (isBot()) return fakeBotSuccess();
+    if (!validateForm() || !checkRateLimit()) return;
 
-    const servicoTexto = formData.servico || "Não especificado";
-    const mensagemTexto = formData.mensagem.trim() || "Sem mensagem adicional";
+    const safe = {
+      nome: sanitize(formData.nome.trim()),
+      telefone: sanitize(formData.telefone.trim()),
+      email: sanitize(formData.email.trim()),
+      servico: sanitize(formData.servico || "Não especificado"),
+      mensagem: sanitize(formData.mensagem.trim() || "Sem mensagem adicional"),
+    };
 
-    const subject = encodeURIComponent(`Novo Orçamento - ${formData.nome}`);
+    const subject = encodeURIComponent(`Novo Orçamento - ${safe.nome}`);
     const body = encodeURIComponent(
-      `Novo Orçamento - Aquazul\n\nNome: ${formData.nome}\nTelefone: ${formData.telefone}\nE-mail: ${formData.email}\nServiço: ${servicoTexto}\nMensagem: ${mensagemTexto}`
+      `Novo Orçamento - Aquazul\n\nNome: ${safe.nome}\nTelefone: ${safe.telefone}\nE-mail: ${safe.email}\nServiço: ${safe.servico}\nMensagem: ${safe.mensagem}`
     );
 
-    const mailtoUrl = `mailto:aquazul1655@gmail.com?subject=${subject}&body=${body}`;
-    window.open(mailtoUrl, "_blank");
-
-    toast({
-      title: "Abrindo cliente de e-mail",
-      description: "Complete o envio no seu aplicativo de e-mail.",
-    });
-
+    window.open(`mailto:aquazul1655@gmail.com?subject=${subject}&body=${body}`, "_blank");
+    toast({ title: "Abrindo cliente de e-mail", description: "Complete o envio no seu aplicativo de e-mail." });
     clearForm();
   };
 
   const clearForm = () => {
-    setFormData({
-      nome: "",
-      telefone: "",
-      email: "",
-      servico: "",
-      mensagem: "",
-    });
+    setFormData({ nome: "", telefone: "", email: "", servico: "", mensagem: "", _gotcha: "" });
   };
 
   return (
@@ -135,16 +167,29 @@ const Contact = () => {
                 Solicite um orçamento
               </h3>
               <div className="space-y-4 md:space-y-6">
+                {/* Honeypot */}
+                <input
+                  type="text"
+                  name="_gotcha"
+                  value={formData._gotcha}
+                  onChange={handleInputChange}
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                  style={{ position: "absolute", left: "-9999px" }}
+                />
+
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
                   <div>
                     <label className="text-xs md:text-sm font-medium text-foreground mb-1.5 md:mb-2 block">
                       Nome completo
                     </label>
-                    <Input 
+                    <Input
                       name="nome"
                       value={formData.nome}
                       onChange={handleInputChange}
-                      placeholder="Seu nome" 
+                      placeholder="Seu nome"
+                      maxLength={LIMITS.nome}
                       className="bg-background border-border focus:border-primary font-body text-sm md:text-base"
                       required
                     />
@@ -153,11 +198,12 @@ const Contact = () => {
                     <label className="text-xs md:text-sm font-medium text-foreground mb-1.5 md:mb-2 block">
                       Telefone
                     </label>
-                    <Input 
+                    <Input
                       name="telefone"
                       value={formData.telefone}
                       onChange={handleInputChange}
-                      placeholder="(11) 99999-9999" 
+                      placeholder="(11) 99999-9999"
+                      maxLength={LIMITS.telefone}
                       className="bg-background border-border focus:border-primary font-body text-sm md:text-base"
                       required
                     />
@@ -167,12 +213,13 @@ const Contact = () => {
                   <label className="text-xs md:text-sm font-medium text-foreground mb-1.5 md:mb-2 block">
                     E-mail
                   </label>
-                  <Input 
+                  <Input
                     name="email"
                     type="email"
                     value={formData.email}
                     onChange={handleInputChange}
-                    placeholder="seu@email.com" 
+                    placeholder="seu@email.com"
+                    maxLength={LIMITS.email}
                     className="bg-background border-border focus:border-primary font-body text-sm md:text-base"
                     required
                   />
@@ -181,7 +228,7 @@ const Contact = () => {
                   <label className="text-xs md:text-sm font-medium text-foreground mb-1.5 md:mb-2 block">
                     Tipo de serviço
                   </label>
-                  <select 
+                  <select
                     name="servico"
                     value={formData.servico}
                     onChange={handleInputChange}
@@ -198,31 +245,35 @@ const Contact = () => {
                   <label className="text-xs md:text-sm font-medium text-foreground mb-1.5 md:mb-2 block">
                     Mensagem
                   </label>
-                  <Textarea 
+                  <Textarea
                     name="mensagem"
                     value={formData.mensagem}
                     onChange={handleInputChange}
                     placeholder="Descreva seu projeto ou dúvida..."
                     rows={4}
+                    maxLength={LIMITS.mensagem}
                     className="bg-background border-border focus:border-primary resize-none font-body text-sm md:text-base"
                   />
+                  <p className="text-xs text-muted-foreground text-right mt-1">
+                    {formData.mensagem.length}/{LIMITS.mensagem}
+                  </p>
                 </div>
-                
+
                 <p className="text-xs md:text-sm text-muted-foreground text-center">
                   Escolha como prefere enviar:
                 </p>
-                
+
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 md:gap-3">
-                  <Button 
-                    type="button" 
+                  <Button
+                    type="button"
                     onClick={handleWhatsApp}
                     className="w-full bg-[#25D366] hover:bg-[#128C7E] text-white font-semibold py-5 md:py-6 transition-colors gap-2 text-sm md:text-base"
                   >
                     <MessageCircle className="w-4 h-4 md:w-5 md:h-5" />
                     Enviar via WhatsApp
                   </Button>
-                  <Button 
-                    type="button" 
+                  <Button
+                    type="button"
                     onClick={handleEmail}
                     className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-5 md:py-6 transition-colors gap-2 text-sm md:text-base"
                   >
@@ -252,7 +303,7 @@ const Contact = () => {
               ))}
             </div>
 
-            {/* Map placeholder */}
+            {/* Map */}
             <div className="bg-card rounded-xl overflow-hidden border border-border/50 shadow-soft h-48 md:h-64">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7315.736291017295!2d-46.22907845930333!3d-23.537244365265288!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce77e7dd9ad6c9%3A0xf43fb49f632a09ec!2sAquazul%20Piscinas%20e%20Lagos!5e0!3m2!1spt-BR!2sbr!4v1767061981073!5m2!1spt-BR!2sbr"
