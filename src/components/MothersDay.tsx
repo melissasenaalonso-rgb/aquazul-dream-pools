@@ -54,7 +54,7 @@ const MothersDay = () => {
           <h2 className="text-4xl md:text-5xl font-serif font-bold text-foreground mb-4">
             Mães Aquazul: <span className="text-aqua">Nossa Inspiração</span>
           </h2>
-          <p className="text-muted-foreground text-lg">
+          <p className="text-aqua-dark text-lg md:text-2xl font-medium leading-relaxed">
             Uma homenagem carinhosa às mães da nossa equipe, que com amor e
             dedicação inspiram cada projeto que realizamos.
           </p>
@@ -115,8 +115,8 @@ const MothersDay = () => {
           </div>
         </div>
 
-        <p className="text-center mt-10 text-muted-foreground italic">
-          "Ser mãe é mergulhar de cabeça no amor mais profundo." 💙
+        <p className="text-center mt-12 text-aqua-dark text-xl md:text-3xl font-serif italic font-semibold">
+          "Ser mãe é mergulhar de cabeça no amor mais profundo." <span className="text-2xl md:text-4xl">💙</span>
         </p>
       </div>
     </section>
